@@ -1,4 +1,3 @@
-
 # FlowSnippetDTO
 
 ## Properties
@@ -13,6 +12,3 @@ Name | Type | Description | Notes
 **labels** | [**List&lt;LabelDTO&gt;**](LabelDTO.md) | The labels in this flow snippet. |  [optional]
 **funnels** | [**List&lt;FunnelDTO&gt;**](FunnelDTO.md) | The funnels in this flow snippet. |  [optional]
 **controllerServices** | [**List&lt;ControllerServiceDTO&gt;**](ControllerServiceDTO.md) | The controller services in this flow snippet. |  [optional]
-
-
-

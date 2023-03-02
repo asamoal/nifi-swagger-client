@@ -1,4 +1,3 @@
-
 # ProcessorStatusSnapshotDTO
 
 ## Properties
@@ -25,17 +24,17 @@ Name | Type | Description | Notes
 **tasks** | **String** | The total number of task this connectable has completed over the last 5 minutes. |  [optional]
 **tasksDuration** | **String** | The total duration of all tasks for this connectable over the last 5 minutes. |  [optional]
 **activeThreadCount** | **Integer** | The number of threads currently executing in the processor. |  [optional]
-
+**terminatedThreadCount** | **Integer** | The number of threads currently terminated for the processor. |  [optional]
 
 <a name="RunStatusEnum"></a>
 ## Enum: RunStatusEnum
 Name | Value
 ---- | -----
-RUNNING | &quot;RUNNING&quot;
-STOPPED | &quot;STOPPED&quot;
-DISABLED | &quot;DISABLED&quot;
-INVALID | &quot;INVALID&quot;
-
+RUNNING | &quot;Running&quot;
+STOPPED | &quot;Stopped&quot;
+VALIDATING | &quot;Validating&quot;
+DISABLED | &quot;Disabled&quot;
+INVALID | &quot;Invalid&quot;
 
 <a name="ExecutionNodeEnum"></a>
 ## Enum: ExecutionNodeEnum
@@ -43,6 +42,3 @@ Name | Value
 ---- | -----
 ALL | &quot;ALL&quot;
 PRIMARY | &quot;PRIMARY&quot;
-
-
-

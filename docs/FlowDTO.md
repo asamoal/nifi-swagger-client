@@ -1,4 +1,3 @@
-
 # FlowDTO
 
 ## Properties
@@ -12,6 +11,3 @@ Name | Type | Description | Notes
 **connections** | [**List&lt;ConnectionEntity&gt;**](ConnectionEntity.md) | The connections in this flow. |  [optional]
 **labels** | [**List&lt;LabelEntity&gt;**](LabelEntity.md) | The labels in this flow. |  [optional]
 **funnels** | [**List&lt;FunnelEntity&gt;**](FunnelEntity.md) | The funnels in this flow. |  [optional]
-
-
-

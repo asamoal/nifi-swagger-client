@@ -1,4 +1,3 @@
-
 # RemoteProcessGroupStatusSnapshotDTO
 
 ## Properties
@@ -16,6 +15,3 @@ Name | Type | Description | Notes
 **flowFilesReceived** | **Integer** | The number of FlowFiles received from the remote process group in the last 5 minutes. |  [optional]
 **bytesReceived** | **Long** | The size of the FlowFiles received from the remote process group in the last 5 minutes. |  [optional]
 **received** | **String** | The count/size of the flowfiles received from the remote process group in the last 5 minutes. |  [optional]
-
-
-

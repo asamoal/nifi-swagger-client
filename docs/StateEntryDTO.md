@@ -1,4 +1,3 @@
-
 # StateEntryDTO
 
 ## Properties
@@ -8,6 +7,3 @@ Name | Type | Description | Notes
 **value** | **String** | The value for this state. |  [optional]
 **clusterNodeId** | **String** | The identifier for the node where the state originated. |  [optional]
 **clusterNodeAddress** | **String** | The label for the node where the state originated. |  [optional]
-
-
-

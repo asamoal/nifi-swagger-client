@@ -1,4 +1,3 @@
-
 # ListingRequestDTO
 
 ## Properties
@@ -13,10 +12,7 @@ Name | Type | Description | Notes
 **failureReason** | **String** | The reason, if any, that this listing request failed. |  [optional]
 **maxResults** | **Integer** | The maximum number of FlowFileSummary objects to return |  [optional]
 **state** | **String** | The current state of the listing request. |  [optional]
-**queueSize** | [**QueueSizeDTO**](QueueSizeDTO.md) | The size of the queue |  [optional]
+**queueSize** | [**QueueSizeDTO**](QueueSizeDTO.md) |  |  [optional]
 **flowFileSummaries** | [**List&lt;FlowFileSummaryDTO&gt;**](FlowFileSummaryDTO.md) | The FlowFile summaries. The summaries will be populated once the request has completed. |  [optional]
 **sourceRunning** | **Boolean** | Whether the source of the connection is running |  [optional]
 **destinationRunning** | **Boolean** | Whether the destination of the connection is running |  [optional]
-
-
-

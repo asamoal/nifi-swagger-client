@@ -1,4 +1,3 @@
-
 # ProvenanceNodeDTO
 
 ## Properties
@@ -14,13 +13,9 @@ Name | Type | Description | Notes
 **millis** | **Long** | The timestamp of the node in milliseconds. |  [optional]
 **timestamp** | **String** | The timestamp of the node formatted. |  [optional]
 
-
 <a name="TypeEnum"></a>
 ## Enum: TypeEnum
 Name | Value
 ---- | -----
 FLOWFILE | &quot;FLOWFILE&quot;
 EVENT | &quot;EVENT&quot;
-
-
-

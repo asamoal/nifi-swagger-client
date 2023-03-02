@@ -1,4 +1,3 @@
-
 # TemplateDTO
 
 ## Properties
@@ -11,7 +10,4 @@ Name | Type | Description | Notes
 **description** | **String** | The description of the template. |  [optional]
 **timestamp** | **String** | The timestamp when this template was created. |  [optional]
 **encodingVersion** | **String** | The encoding version of this template. |  [optional]
-**snippet** | [**FlowSnippetDTO**](FlowSnippetDTO.md) | The contents of the template. |  [optional]
-
-
-
+**snippet** | [**FlowSnippetDTO**](FlowSnippetDTO.md) |  |  [optional]

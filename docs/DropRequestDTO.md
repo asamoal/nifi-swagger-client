@@ -1,4 +1,3 @@
-
 # DropRequestDTO
 
 ## Properties
@@ -21,6 +20,3 @@ Name | Type | Description | Notes
 **droppedSize** | **Long** | The size of flow files that have been dropped thus far in bytes. |  [optional]
 **dropped** | **String** | The count and size of flow files that have been dropped thus far. |  [optional]
 **state** | **String** | The current state of the drop request. |  [optional]
-
-
-

@@ -1,4 +1,3 @@
-
 # VersionedFlowDTO
 
 ## Properties
@@ -10,6 +9,11 @@ Name | Type | Description | Notes
 **flowName** | **String** | The name of the flow |  [optional]
 **description** | **String** | A description of the flow |  [optional]
 **comments** | **String** | Comments for the changeset |  [optional]
+**action** | [**ActionEnum**](#ActionEnum) | The action being performed |  [optional]
 
-
-
+<a name="ActionEnum"></a>
+## Enum: ActionEnum
+Name | Value
+---- | -----
+COMMIT | &quot;COMMIT&quot;
+FORCE_COMMIT | &quot;FORCE_COMMIT&quot;

@@ -1,4 +1,3 @@
-
 # SnippetDTO
 
 ## Properties
@@ -15,6 +14,3 @@ Name | Type | Description | Notes
 **connections** | [**Map&lt;String, RevisionDTO&gt;**](RevisionDTO.md) | The ids of the connections in this snippet. These ids will be populated within each response. They can be specified when creating a snippet. However, once a snippet has been created its contents cannot be modified (these ids are ignored during update requests). |  [optional]
 **labels** | [**Map&lt;String, RevisionDTO&gt;**](RevisionDTO.md) | The ids of the labels in this snippet. These ids will be populated within each response. They can be specified when creating a snippet. However, once a snippet has been created its contents cannot be modified (these ids are ignored during update requests). |  [optional]
 **funnels** | [**Map&lt;String, RevisionDTO&gt;**](RevisionDTO.md) | The ids of the funnels in this snippet. These ids will be populated within each response. They can be specified when creating a snippet. However, once a snippet has been created its contents cannot be modified (these ids are ignored during update requests). |  [optional]
-
-
-

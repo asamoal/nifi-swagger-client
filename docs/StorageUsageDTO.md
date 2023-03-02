@@ -1,4 +1,3 @@
-
 # StorageUsageDTO
 
 ## Properties
@@ -12,6 +11,3 @@ Name | Type | Description | Notes
 **totalSpaceBytes** | **Long** | The number of bytes of total space. |  [optional]
 **usedSpaceBytes** | **Long** | The number of bytes of used space. |  [optional]
 **utilization** | **String** | Utilization of this storage location. |  [optional]
-
-
-

@@ -1,4 +1,3 @@
-
 # ConnectionStatusDTO
 
 ## Properties
@@ -12,8 +11,5 @@ Name | Type | Description | Notes
 **sourceName** | **String** | The name of the source component |  [optional]
 **destinationId** | **String** | The ID of the destination component |  [optional]
 **destinationName** | **String** | The name of the destination component |  [optional]
-**aggregateSnapshot** | [**ConnectionStatusSnapshotDTO**](ConnectionStatusSnapshotDTO.md) | The status snapshot that represents the aggregate stats of the cluster |  [optional]
+**aggregateSnapshot** | [**ConnectionStatusSnapshotDTO**](ConnectionStatusSnapshotDTO.md) |  |  [optional]
 **nodeSnapshots** | [**List&lt;NodeConnectionStatusSnapshotDTO&gt;**](NodeConnectionStatusSnapshotDTO.md) | A list of status snapshots for each node |  [optional]
-
-
-

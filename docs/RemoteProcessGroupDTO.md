@@ -1,4 +1,3 @@
-
 # RemoteProcessGroupDTO
 
 ## Properties
@@ -7,7 +6,7 @@ Name | Type | Description | Notes
 **id** | **String** | The id of the component. |  [optional]
 **versionedComponentId** | **String** | The ID of the corresponding component that is under version control |  [optional]
 **parentGroupId** | **String** | The id of parent process group of this component if applicable. |  [optional]
-**position** | [**PositionDTO**](PositionDTO.md) | The position of this component in the UI if applicable. |  [optional]
+**position** | [**PositionDTO**](PositionDTO.md) |  |  [optional]
 **targetUri** | **String** | The target URI of the remote process group. If target uri is not set, but uris are set, then returns the first url in the urls. If neither target uri nor uris are set, then returns null. |  [optional]
 **targetUris** | **String** | The target URI of the remote process group. If target uris is not set but target uri is set, then returns a collection containing the single target uri. If neither target uris nor uris are set, then returns null. |  [optional]
 **targetSecure** | **Boolean** | Whether the target is running securely. |  [optional]
@@ -31,7 +30,4 @@ Name | Type | Description | Notes
 **activeRemoteOutputPortCount** | **Integer** | The number of active remote output ports. |  [optional]
 **inactiveRemoteOutputPortCount** | **Integer** | The number of inactive remote output ports. |  [optional]
 **flowRefreshed** | **String** | The timestamp when this remote process group was last refreshed. |  [optional]
-**contents** | [**RemoteProcessGroupContentsDTO**](RemoteProcessGroupContentsDTO.md) | The contents of the remote process group. Will contain available input/output ports. |  [optional]
-
-
-
+**contents** | [**RemoteProcessGroupContentsDTO**](RemoteProcessGroupContentsDTO.md) |  |  [optional]

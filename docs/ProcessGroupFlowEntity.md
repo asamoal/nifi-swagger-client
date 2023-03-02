@@ -1,11 +1,7 @@
-
 # ProcessGroupFlowEntity
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**permissions** | [**PermissionsDTO**](PermissionsDTO.md) | The access policy for this process group. |  [optional]
+**permissions** | [**PermissionsDTO**](PermissionsDTO.md) |  |  [optional]
 **processGroupFlow** | [**ProcessGroupFlowDTO**](ProcessGroupFlowDTO.md) |  |  [optional]
-
-
-

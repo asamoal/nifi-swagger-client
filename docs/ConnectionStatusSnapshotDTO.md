@@ -1,4 +1,3 @@
-
 # ConnectionStatusSnapshotDTO
 
 ## Properties
@@ -11,6 +10,7 @@ Name | Type | Description | Notes
 **sourceName** | **String** | The name of the source of the connection. |  [optional]
 **destinationId** | **String** | The id of the destination of the connection. |  [optional]
 **destinationName** | **String** | The name of the destination of the connection. |  [optional]
+**predictions** | [**ConnectionStatusPredictionsSnapshotDTO**](ConnectionStatusPredictionsSnapshotDTO.md) |  |  [optional]
 **flowFilesIn** | **Integer** | The number of FlowFiles that have come into the connection in the last 5 minutes. |  [optional]
 **bytesIn** | **Long** | The size of the FlowFiles that have come into the connection in the last 5 minutes. |  [optional]
 **input** | **String** | The input count/size for the connection in the last 5 minutes, pretty printed. |  [optional]
@@ -24,6 +24,4 @@ Name | Type | Description | Notes
 **queuedCount** | **String** | The number of flowfiles that are queued, pretty printed. |  [optional]
 **percentUseCount** | **Integer** | Connection percent use regarding queued flow files count and backpressure threshold if configured. |  [optional]
 **percentUseBytes** | **Integer** | Connection percent use regarding queued flow files size and backpressure threshold if configured. |  [optional]
-
-
-
+**flowFileAvailability** | **String** | The availability of FlowFiles in this connection |  [optional]

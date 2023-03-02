@@ -1,6 +1,6 @@
 # TenantsApi
 
-All URIs are relative to *http://localhost/nifi-api*
+All URIs are relative to */nifi-api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -16,29 +16,20 @@ Method | HTTP request | Description
 [**updateUser**](TenantsApi.md#updateUser) | **PUT** /tenants/users/{id} | Updates a user
 [**updateUserGroup**](TenantsApi.md#updateUserGroup) | **PUT** /tenants/user-groups/{id} | Updates a user group
 
-
 <a name="createUser"></a>
 # **createUser**
 > UserEntity createUser(body)
 
 Creates a user
 
-Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
+Note: This endpoint is subject to change as NiFi and it&#x27;s REST API evolve.
 
 ### Example
 ```java
 // Import classes:
-//import com.github.hermannpencole.nifi.swagger.ApiClient;
-//import com.github.hermannpencole.nifi.swagger.ApiException;
-//import com.github.hermannpencole.nifi.swagger.Configuration;
-//import com.github.hermannpencole.nifi.swagger.auth.*;
-//import com.github.hermannpencole.nifi.swagger.client.TenantsApi;
+//import com.github.asamoal.nifi.swagger.ApiException;
+//import com.github.asamoal.nifi.swagger.client.TenantsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: auth
-OAuth auth = (OAuth) defaultClient.getAuthentication("auth");
-auth.setAccessToken("YOUR ACCESS TOKEN");
 
 TenantsApi apiInstance = new TenantsApi();
 UserEntity body = new UserEntity(); // UserEntity | The user configuration details.
@@ -63,7 +54,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[auth](../README.md#auth)
+No authorization required
 
 ### HTTP request headers
 
@@ -76,22 +67,14 @@ Name | Type | Description  | Notes
 
 Creates a user group
 
-Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
+Note: This endpoint is subject to change as NiFi and it&#x27;s REST API evolve.
 
 ### Example
 ```java
 // Import classes:
-//import com.github.hermannpencole.nifi.swagger.ApiClient;
-//import com.github.hermannpencole.nifi.swagger.ApiException;
-//import com.github.hermannpencole.nifi.swagger.Configuration;
-//import com.github.hermannpencole.nifi.swagger.auth.*;
-//import com.github.hermannpencole.nifi.swagger.client.TenantsApi;
+//import com.github.asamoal.nifi.swagger.ApiException;
+//import com.github.asamoal.nifi.swagger.client.TenantsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: auth
-OAuth auth = (OAuth) defaultClient.getAuthentication("auth");
-auth.setAccessToken("YOUR ACCESS TOKEN");
 
 TenantsApi apiInstance = new TenantsApi();
 UserGroupEntity body = new UserGroupEntity(); // UserGroupEntity | The user group configuration details.
@@ -116,7 +99,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[auth](../README.md#auth)
+No authorization required
 
 ### HTTP request headers
 
@@ -129,22 +112,14 @@ Name | Type | Description  | Notes
 
 Gets a user
 
-Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
+Note: This endpoint is subject to change as NiFi and it&#x27;s REST API evolve.
 
 ### Example
 ```java
 // Import classes:
-//import com.github.hermannpencole.nifi.swagger.ApiClient;
-//import com.github.hermannpencole.nifi.swagger.ApiException;
-//import com.github.hermannpencole.nifi.swagger.Configuration;
-//import com.github.hermannpencole.nifi.swagger.auth.*;
-//import com.github.hermannpencole.nifi.swagger.client.TenantsApi;
+//import com.github.asamoal.nifi.swagger.ApiException;
+//import com.github.asamoal.nifi.swagger.client.TenantsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: auth
-OAuth auth = (OAuth) defaultClient.getAuthentication("auth");
-auth.setAccessToken("YOUR ACCESS TOKEN");
 
 TenantsApi apiInstance = new TenantsApi();
 String id = "id_example"; // String | The user id.
@@ -169,11 +144,11 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[auth](../README.md#auth)
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 <a name="getUserGroup"></a>
@@ -182,22 +157,14 @@ Name | Type | Description  | Notes
 
 Gets a user group
 
-Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
+Note: This endpoint is subject to change as NiFi and it&#x27;s REST API evolve.
 
 ### Example
 ```java
 // Import classes:
-//import com.github.hermannpencole.nifi.swagger.ApiClient;
-//import com.github.hermannpencole.nifi.swagger.ApiException;
-//import com.github.hermannpencole.nifi.swagger.Configuration;
-//import com.github.hermannpencole.nifi.swagger.auth.*;
-//import com.github.hermannpencole.nifi.swagger.client.TenantsApi;
+//import com.github.asamoal.nifi.swagger.ApiException;
+//import com.github.asamoal.nifi.swagger.client.TenantsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: auth
-OAuth auth = (OAuth) defaultClient.getAuthentication("auth");
-auth.setAccessToken("YOUR ACCESS TOKEN");
 
 TenantsApi apiInstance = new TenantsApi();
 String id = "id_example"; // String | The user group id.
@@ -222,11 +189,11 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[auth](../README.md#auth)
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 <a name="getUserGroups"></a>
@@ -235,22 +202,14 @@ Name | Type | Description  | Notes
 
 Gets all user groups
 
-Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
+Note: This endpoint is subject to change as NiFi and it&#x27;s REST API evolve.
 
 ### Example
 ```java
 // Import classes:
-//import com.github.hermannpencole.nifi.swagger.ApiClient;
-//import com.github.hermannpencole.nifi.swagger.ApiException;
-//import com.github.hermannpencole.nifi.swagger.Configuration;
-//import com.github.hermannpencole.nifi.swagger.auth.*;
-//import com.github.hermannpencole.nifi.swagger.client.TenantsApi;
+//import com.github.asamoal.nifi.swagger.ApiException;
+//import com.github.asamoal.nifi.swagger.client.TenantsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: auth
-OAuth auth = (OAuth) defaultClient.getAuthentication("auth");
-auth.setAccessToken("YOUR ACCESS TOKEN");
 
 TenantsApi apiInstance = new TenantsApi();
 try {
@@ -271,11 +230,11 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[auth](../README.md#auth)
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 <a name="getUsers"></a>
@@ -284,22 +243,14 @@ This endpoint does not need any parameter.
 
 Gets all users
 
-Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
+Note: This endpoint is subject to change as NiFi and it&#x27;s REST API evolve.
 
 ### Example
 ```java
 // Import classes:
-//import com.github.hermannpencole.nifi.swagger.ApiClient;
-//import com.github.hermannpencole.nifi.swagger.ApiException;
-//import com.github.hermannpencole.nifi.swagger.Configuration;
-//import com.github.hermannpencole.nifi.swagger.auth.*;
-//import com.github.hermannpencole.nifi.swagger.client.TenantsApi;
+//import com.github.asamoal.nifi.swagger.ApiException;
+//import com.github.asamoal.nifi.swagger.client.TenantsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: auth
-OAuth auth = (OAuth) defaultClient.getAuthentication("auth");
-auth.setAccessToken("YOUR ACCESS TOKEN");
 
 TenantsApi apiInstance = new TenantsApi();
 try {
@@ -320,42 +271,35 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[auth](../README.md#auth)
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 <a name="removeUser"></a>
 # **removeUser**
-> UserEntity removeUser(id, version, clientId)
+> UserEntity removeUser(id, version, clientId, disconnectedNodeAcknowledged)
 
 Deletes a user
 
-Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
+Note: This endpoint is subject to change as NiFi and it&#x27;s REST API evolve.
 
 ### Example
 ```java
 // Import classes:
-//import com.github.hermannpencole.nifi.swagger.ApiClient;
-//import com.github.hermannpencole.nifi.swagger.ApiException;
-//import com.github.hermannpencole.nifi.swagger.Configuration;
-//import com.github.hermannpencole.nifi.swagger.auth.*;
-//import com.github.hermannpencole.nifi.swagger.client.TenantsApi;
+//import com.github.asamoal.nifi.swagger.ApiException;
+//import com.github.asamoal.nifi.swagger.client.TenantsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: auth
-OAuth auth = (OAuth) defaultClient.getAuthentication("auth");
-auth.setAccessToken("YOUR ACCESS TOKEN");
 
 TenantsApi apiInstance = new TenantsApi();
 String id = "id_example"; // String | The user id.
 String version = "version_example"; // String | The revision is used to verify the client is working with the latest version of the flow.
 String clientId = "clientId_example"; // String | If the client id is not specified, new one will be generated. This value (whether specified or generated) is included in the response.
+Boolean disconnectedNodeAcknowledged = false; // Boolean | Acknowledges that this node is disconnected to allow for mutable requests to proceed.
 try {
-    UserEntity result = apiInstance.removeUser(id, version, clientId);
+    UserEntity result = apiInstance.removeUser(id, version, clientId, disconnectedNodeAcknowledged);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling TenantsApi#removeUser");
@@ -370,6 +314,7 @@ Name | Type | Description  | Notes
  **id** | **String**| The user id. |
  **version** | **String**| The revision is used to verify the client is working with the latest version of the flow. | [optional]
  **clientId** | **String**| If the client id is not specified, new one will be generated. This value (whether specified or generated) is included in the response. | [optional]
+ **disconnectedNodeAcknowledged** | **Boolean**| Acknowledges that this node is disconnected to allow for mutable requests to proceed. | [optional] [default to false]
 
 ### Return type
 
@@ -377,42 +322,35 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[auth](../README.md#auth)
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 <a name="removeUserGroup"></a>
 # **removeUserGroup**
-> UserGroupEntity removeUserGroup(id, version, clientId)
+> UserGroupEntity removeUserGroup(id, version, clientId, disconnectedNodeAcknowledged)
 
 Deletes a user group
 
-Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
+Note: This endpoint is subject to change as NiFi and it&#x27;s REST API evolve.
 
 ### Example
 ```java
 // Import classes:
-//import com.github.hermannpencole.nifi.swagger.ApiClient;
-//import com.github.hermannpencole.nifi.swagger.ApiException;
-//import com.github.hermannpencole.nifi.swagger.Configuration;
-//import com.github.hermannpencole.nifi.swagger.auth.*;
-//import com.github.hermannpencole.nifi.swagger.client.TenantsApi;
+//import com.github.asamoal.nifi.swagger.ApiException;
+//import com.github.asamoal.nifi.swagger.client.TenantsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: auth
-OAuth auth = (OAuth) defaultClient.getAuthentication("auth");
-auth.setAccessToken("YOUR ACCESS TOKEN");
 
 TenantsApi apiInstance = new TenantsApi();
 String id = "id_example"; // String | The user group id.
 String version = "version_example"; // String | The revision is used to verify the client is working with the latest version of the flow.
 String clientId = "clientId_example"; // String | If the client id is not specified, new one will be generated. This value (whether specified or generated) is included in the response.
+Boolean disconnectedNodeAcknowledged = false; // Boolean | Acknowledges that this node is disconnected to allow for mutable requests to proceed.
 try {
-    UserGroupEntity result = apiInstance.removeUserGroup(id, version, clientId);
+    UserGroupEntity result = apiInstance.removeUserGroup(id, version, clientId, disconnectedNodeAcknowledged);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling TenantsApi#removeUserGroup");
@@ -427,6 +365,7 @@ Name | Type | Description  | Notes
  **id** | **String**| The user group id. |
  **version** | **String**| The revision is used to verify the client is working with the latest version of the flow. | [optional]
  **clientId** | **String**| If the client id is not specified, new one will be generated. This value (whether specified or generated) is included in the response. | [optional]
+ **disconnectedNodeAcknowledged** | **Boolean**| Acknowledges that this node is disconnected to allow for mutable requests to proceed. | [optional] [default to false]
 
 ### Return type
 
@@ -434,11 +373,11 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[auth](../README.md#auth)
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 <a name="searchTenants"></a>
@@ -447,22 +386,14 @@ Name | Type | Description  | Notes
 
 Searches for a tenant with the specified identity
 
-Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
+Note: This endpoint is subject to change as NiFi and it&#x27;s REST API evolve.
 
 ### Example
 ```java
 // Import classes:
-//import com.github.hermannpencole.nifi.swagger.ApiClient;
-//import com.github.hermannpencole.nifi.swagger.ApiException;
-//import com.github.hermannpencole.nifi.swagger.Configuration;
-//import com.github.hermannpencole.nifi.swagger.auth.*;
-//import com.github.hermannpencole.nifi.swagger.client.TenantsApi;
+//import com.github.asamoal.nifi.swagger.ApiException;
+//import com.github.asamoal.nifi.swagger.client.TenantsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: auth
-OAuth auth = (OAuth) defaultClient.getAuthentication("auth");
-auth.setAccessToken("YOUR ACCESS TOKEN");
 
 TenantsApi apiInstance = new TenantsApi();
 String q = "q_example"; // String | Identity to search for.
@@ -487,41 +418,33 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[auth](../README.md#auth)
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 <a name="updateUser"></a>
 # **updateUser**
-> UserEntity updateUser(id, body)
+> UserEntity updateUser(body, id)
 
 Updates a user
 
-Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
+Note: This endpoint is subject to change as NiFi and it&#x27;s REST API evolve.
 
 ### Example
 ```java
 // Import classes:
-//import com.github.hermannpencole.nifi.swagger.ApiClient;
-//import com.github.hermannpencole.nifi.swagger.ApiException;
-//import com.github.hermannpencole.nifi.swagger.Configuration;
-//import com.github.hermannpencole.nifi.swagger.auth.*;
-//import com.github.hermannpencole.nifi.swagger.client.TenantsApi;
+//import com.github.asamoal.nifi.swagger.ApiException;
+//import com.github.asamoal.nifi.swagger.client.TenantsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: auth
-OAuth auth = (OAuth) defaultClient.getAuthentication("auth");
-auth.setAccessToken("YOUR ACCESS TOKEN");
 
 TenantsApi apiInstance = new TenantsApi();
-String id = "id_example"; // String | The user id.
 UserEntity body = new UserEntity(); // UserEntity | The user configuration details.
+String id = "id_example"; // String | The user id.
 try {
-    UserEntity result = apiInstance.updateUser(id, body);
+    UserEntity result = apiInstance.updateUser(body, id);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling TenantsApi#updateUser");
@@ -533,8 +456,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| The user id. |
  **body** | [**UserEntity**](UserEntity.md)| The user configuration details. |
+ **id** | **String**| The user id. |
 
 ### Return type
 
@@ -542,7 +465,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[auth](../README.md#auth)
+No authorization required
 
 ### HTTP request headers
 
@@ -551,32 +474,24 @@ Name | Type | Description  | Notes
 
 <a name="updateUserGroup"></a>
 # **updateUserGroup**
-> UserGroupEntity updateUserGroup(id, body)
+> UserGroupEntity updateUserGroup(body, id)
 
 Updates a user group
 
-Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
+Note: This endpoint is subject to change as NiFi and it&#x27;s REST API evolve.
 
 ### Example
 ```java
 // Import classes:
-//import com.github.hermannpencole.nifi.swagger.ApiClient;
-//import com.github.hermannpencole.nifi.swagger.ApiException;
-//import com.github.hermannpencole.nifi.swagger.Configuration;
-//import com.github.hermannpencole.nifi.swagger.auth.*;
-//import com.github.hermannpencole.nifi.swagger.client.TenantsApi;
+//import com.github.asamoal.nifi.swagger.ApiException;
+//import com.github.asamoal.nifi.swagger.client.TenantsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: auth
-OAuth auth = (OAuth) defaultClient.getAuthentication("auth");
-auth.setAccessToken("YOUR ACCESS TOKEN");
 
 TenantsApi apiInstance = new TenantsApi();
-String id = "id_example"; // String | The user group id.
 UserGroupEntity body = new UserGroupEntity(); // UserGroupEntity | The user group configuration details.
+String id = "id_example"; // String | The user group id.
 try {
-    UserGroupEntity result = apiInstance.updateUserGroup(id, body);
+    UserGroupEntity result = apiInstance.updateUserGroup(body, id);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling TenantsApi#updateUserGroup");
@@ -588,8 +503,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| The user group id. |
  **body** | [**UserGroupEntity**](UserGroupEntity.md)| The user group configuration details. |
+ **id** | **String**| The user group id. |
 
 ### Return type
 
@@ -597,7 +512,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[auth](../README.md#auth)
+No authorization required
 
 ### HTTP request headers
 

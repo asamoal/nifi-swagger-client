@@ -1,4 +1,3 @@
-
 # LineageRequestDTO
 
 ## Properties
@@ -9,7 +8,6 @@ Name | Type | Description | Notes
 **uuid** | **String** | The flowfile uuid that was used to generate the lineage. The flowfile uuid is only allowed when the lineageRequestType is FLOWFILE and will take precedence over event id. |  [optional]
 **clusterNodeId** | **String** | The id of the node where this lineage originated if clustered. |  [optional]
 
-
 <a name="LineageRequestTypeEnum"></a>
 ## Enum: LineageRequestTypeEnum
 Name | Value
@@ -17,6 +15,3 @@ Name | Value
 PARENTS | &quot;PARENTS&quot;
 CHILDREN | &quot;CHILDREN&quot;
 AND_FLOWFILE | &quot;and FLOWFILE&quot;
-
-
-

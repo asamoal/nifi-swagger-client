@@ -1,4 +1,3 @@
-
 # ProvenanceEventDTO
 
 ## Properties
@@ -45,6 +44,3 @@ Name | Type | Description | Notes
 **replayAvailable** | **Boolean** | Whether or not replay is available. |  [optional]
 **replayExplanation** | **String** | Explanation as to why replay is unavailable. |  [optional]
 **sourceConnectionIdentifier** | **String** | The identifier of the queue/connection from which the flowfile was pulled to genereate this event. May be null if the queue/connection is unknown or the flowfile was generated from this event. |  [optional]
-
-
-

@@ -1,4 +1,3 @@
-
 # ProvenanceDTO
 
 ## Properties
@@ -10,8 +9,5 @@ Name | Type | Description | Notes
 **expiration** | **String** | The timestamp when the query will expire. |  [optional]
 **percentCompleted** | **Integer** | The current percent complete. |  [optional]
 **finished** | **Boolean** | Whether the query has finished. |  [optional]
-**request** | [**ProvenanceRequestDTO**](ProvenanceRequestDTO.md) | The provenance request. |  [optional]
-**results** | [**ProvenanceResultsDTO**](ProvenanceResultsDTO.md) | The provenance results. |  [optional]
-
-
-
+**request** | [**ProvenanceRequestDTO**](ProvenanceRequestDTO.md) |  |  [optional]
+**results** | [**ProvenanceResultsDTO**](ProvenanceResultsDTO.md) |  |  [optional]

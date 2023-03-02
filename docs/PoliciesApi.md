@@ -1,6 +1,6 @@
 # PoliciesApi
 
-All URIs are relative to *http://localhost/nifi-api*
+All URIs are relative to */nifi-api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -10,29 +10,18 @@ Method | HTTP request | Description
 [**removeAccessPolicy**](PoliciesApi.md#removeAccessPolicy) | **DELETE** /policies/{id} | Deletes an access policy
 [**updateAccessPolicy**](PoliciesApi.md#updateAccessPolicy) | **PUT** /policies/{id} | Updates a access policy
 
-
 <a name="createAccessPolicy"></a>
 # **createAccessPolicy**
 > AccessPolicyEntity createAccessPolicy(body)
 
 Creates an access policy
 
-
-
 ### Example
 ```java
 // Import classes:
-//import com.github.hermannpencole.nifi.swagger.ApiClient;
-//import com.github.hermannpencole.nifi.swagger.ApiException;
-//import com.github.hermannpencole.nifi.swagger.Configuration;
-//import com.github.hermannpencole.nifi.swagger.auth.*;
-//import com.github.hermannpencole.nifi.swagger.client.PoliciesApi;
+//import com.github.asamoal.nifi.swagger.ApiException;
+//import com.github.asamoal.nifi.swagger.client.PoliciesApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: auth
-OAuth auth = (OAuth) defaultClient.getAuthentication("auth");
-auth.setAccessToken("YOUR ACCESS TOKEN");
 
 PoliciesApi apiInstance = new PoliciesApi();
 AccessPolicyEntity body = new AccessPolicyEntity(); // AccessPolicyEntity | The access policy configuration details.
@@ -57,7 +46,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[auth](../README.md#auth)
+No authorization required
 
 ### HTTP request headers
 
@@ -70,22 +59,12 @@ Name | Type | Description  | Notes
 
 Gets an access policy
 
-
-
 ### Example
 ```java
 // Import classes:
-//import com.github.hermannpencole.nifi.swagger.ApiClient;
-//import com.github.hermannpencole.nifi.swagger.ApiException;
-//import com.github.hermannpencole.nifi.swagger.Configuration;
-//import com.github.hermannpencole.nifi.swagger.auth.*;
-//import com.github.hermannpencole.nifi.swagger.client.PoliciesApi;
+//import com.github.asamoal.nifi.swagger.ApiException;
+//import com.github.asamoal.nifi.swagger.client.PoliciesApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: auth
-OAuth auth = (OAuth) defaultClient.getAuthentication("auth");
-auth.setAccessToken("YOUR ACCESS TOKEN");
 
 PoliciesApi apiInstance = new PoliciesApi();
 String id = "id_example"; // String | The access policy id.
@@ -110,11 +89,11 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[auth](../README.md#auth)
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 <a name="getAccessPolicyForResource"></a>
@@ -128,17 +107,9 @@ Will return the effective policy if no component specific policy exists for the 
 ### Example
 ```java
 // Import classes:
-//import com.github.hermannpencole.nifi.swagger.ApiClient;
-//import com.github.hermannpencole.nifi.swagger.ApiException;
-//import com.github.hermannpencole.nifi.swagger.Configuration;
-//import com.github.hermannpencole.nifi.swagger.auth.*;
-//import com.github.hermannpencole.nifi.swagger.client.PoliciesApi;
+//import com.github.asamoal.nifi.swagger.ApiException;
+//import com.github.asamoal.nifi.swagger.client.PoliciesApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: auth
-OAuth auth = (OAuth) defaultClient.getAuthentication("auth");
-auth.setAccessToken("YOUR ACCESS TOKEN");
 
 PoliciesApi apiInstance = new PoliciesApi();
 String action = "action_example"; // String | The request action.
@@ -165,42 +136,33 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[auth](../README.md#auth)
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 <a name="removeAccessPolicy"></a>
 # **removeAccessPolicy**
-> AccessPolicyEntity removeAccessPolicy(id, version, clientId)
+> AccessPolicyEntity removeAccessPolicy(id, version, clientId, disconnectedNodeAcknowledged)
 
 Deletes an access policy
-
-
 
 ### Example
 ```java
 // Import classes:
-//import com.github.hermannpencole.nifi.swagger.ApiClient;
-//import com.github.hermannpencole.nifi.swagger.ApiException;
-//import com.github.hermannpencole.nifi.swagger.Configuration;
-//import com.github.hermannpencole.nifi.swagger.auth.*;
-//import com.github.hermannpencole.nifi.swagger.client.PoliciesApi;
+//import com.github.asamoal.nifi.swagger.ApiException;
+//import com.github.asamoal.nifi.swagger.client.PoliciesApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: auth
-OAuth auth = (OAuth) defaultClient.getAuthentication("auth");
-auth.setAccessToken("YOUR ACCESS TOKEN");
 
 PoliciesApi apiInstance = new PoliciesApi();
 String id = "id_example"; // String | The access policy id.
 String version = "version_example"; // String | The revision is used to verify the client is working with the latest version of the flow.
 String clientId = "clientId_example"; // String | If the client id is not specified, new one will be generated. This value (whether specified or generated) is included in the response.
+Boolean disconnectedNodeAcknowledged = false; // Boolean | Acknowledges that this node is disconnected to allow for mutable requests to proceed.
 try {
-    AccessPolicyEntity result = apiInstance.removeAccessPolicy(id, version, clientId);
+    AccessPolicyEntity result = apiInstance.removeAccessPolicy(id, version, clientId, disconnectedNodeAcknowledged);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PoliciesApi#removeAccessPolicy");
@@ -215,6 +177,7 @@ Name | Type | Description  | Notes
  **id** | **String**| The access policy id. |
  **version** | **String**| The revision is used to verify the client is working with the latest version of the flow. | [optional]
  **clientId** | **String**| If the client id is not specified, new one will be generated. This value (whether specified or generated) is included in the response. | [optional]
+ **disconnectedNodeAcknowledged** | **Boolean**| Acknowledges that this node is disconnected to allow for mutable requests to proceed. | [optional] [default to false]
 
 ### Return type
 
@@ -222,41 +185,31 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[auth](../README.md#auth)
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 <a name="updateAccessPolicy"></a>
 # **updateAccessPolicy**
-> AccessPolicyEntity updateAccessPolicy(id, body)
+> AccessPolicyEntity updateAccessPolicy(body, id)
 
 Updates a access policy
-
-
 
 ### Example
 ```java
 // Import classes:
-//import com.github.hermannpencole.nifi.swagger.ApiClient;
-//import com.github.hermannpencole.nifi.swagger.ApiException;
-//import com.github.hermannpencole.nifi.swagger.Configuration;
-//import com.github.hermannpencole.nifi.swagger.auth.*;
-//import com.github.hermannpencole.nifi.swagger.client.PoliciesApi;
+//import com.github.asamoal.nifi.swagger.ApiException;
+//import com.github.asamoal.nifi.swagger.client.PoliciesApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: auth
-OAuth auth = (OAuth) defaultClient.getAuthentication("auth");
-auth.setAccessToken("YOUR ACCESS TOKEN");
 
 PoliciesApi apiInstance = new PoliciesApi();
-String id = "id_example"; // String | The access policy id.
 AccessPolicyEntity body = new AccessPolicyEntity(); // AccessPolicyEntity | The access policy configuration details.
+String id = "id_example"; // String | The access policy id.
 try {
-    AccessPolicyEntity result = apiInstance.updateAccessPolicy(id, body);
+    AccessPolicyEntity result = apiInstance.updateAccessPolicy(body, id);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PoliciesApi#updateAccessPolicy");
@@ -268,8 +221,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| The access policy id. |
  **body** | [**AccessPolicyEntity**](AccessPolicyEntity.md)| The access policy configuration details. |
+ **id** | **String**| The access policy id. |
 
 ### Return type
 
@@ -277,7 +230,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[auth](../README.md#auth)
+No authorization required
 
 ### HTTP request headers
 

@@ -1,25 +1,28 @@
 # ControllerApi
 
-All URIs are relative to *http://localhost/nifi-api*
+All URIs are relative to */nifi-api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**createBulletin**](ControllerApi.md#createBulletin) | **POST** /controller/bulletin | Creates a new bulletin
 [**createControllerService**](ControllerApi.md#createControllerService) | **POST** /controller/controller-services | Creates a new controller service
-[**createRegistryClient**](ControllerApi.md#createRegistryClient) | **POST** /controller/registry-clients | Creates a new registry client
+[**createFlowRegistryClient**](ControllerApi.md#createFlowRegistryClient) | **POST** /controller/registry-clients | Creates a new flow registry client
+[**createParameterProvider**](ControllerApi.md#createParameterProvider) | **POST** /controller/parameter-providers | Creates a new parameter provider
 [**createReportingTask**](ControllerApi.md#createReportingTask) | **POST** /controller/reporting-tasks | Creates a new reporting task
+[**deleteFlowRegistryClient**](ControllerApi.md#deleteFlowRegistryClient) | **DELETE** /controller/registry-clients/{id} | Deletes a flow registry client
 [**deleteHistory**](ControllerApi.md#deleteHistory) | **DELETE** /controller/history | Purges history
 [**deleteNode**](ControllerApi.md#deleteNode) | **DELETE** /controller/cluster/nodes/{id} | Removes a node from the cluster
-[**deleteRegistryClient**](ControllerApi.md#deleteRegistryClient) | **DELETE** /controller/registry-clients/{id} | Deletes a registry client
 [**getCluster**](ControllerApi.md#getCluster) | **GET** /controller/cluster | Gets the contents of the cluster
 [**getControllerConfig**](ControllerApi.md#getControllerConfig) | **GET** /controller/config | Retrieves the configuration for this NiFi Controller
+[**getFlowRegistryClient**](ControllerApi.md#getFlowRegistryClient) | **GET** /controller/registry-clients/{id} | Gets a flow registry client
+[**getFlowRegistryClients**](ControllerApi.md#getFlowRegistryClients) | **GET** /controller/registry-clients | Gets the listing of available flow registry clients
 [**getNode**](ControllerApi.md#getNode) | **GET** /controller/cluster/nodes/{id} | Gets a node in the cluster
-[**getRegistryClient**](ControllerApi.md#getRegistryClient) | **GET** /controller/registry-clients/{id} | Gets a registry client
-[**getRegistryClients**](ControllerApi.md#getRegistryClients) | **GET** /controller/registry-clients | Gets the listing of available registry clients
+[**getNodeStatusHistory**](ControllerApi.md#getNodeStatusHistory) | **GET** /controller/status/history | Gets status history for the node
+[**getPropertyDescriptor**](ControllerApi.md#getPropertyDescriptor) | **GET** /controller/registry-clients/{id}/descriptors | Gets a flow registry client property descriptor
+[**getRegistryClientTypes**](ControllerApi.md#getRegistryClientTypes) | **GET** /controller/registry-types | Retrieves the types of flow  that this NiFi supports
 [**updateControllerConfig**](ControllerApi.md#updateControllerConfig) | **PUT** /controller/config | Retrieves the configuration for this NiFi
+[**updateFlowRegistryClient**](ControllerApi.md#updateFlowRegistryClient) | **PUT** /controller/registry-clients/{id} | Updates a flow registry client
 [**updateNode**](ControllerApi.md#updateNode) | **PUT** /controller/cluster/nodes/{id} | Updates a node in the cluster
-[**updateRegistryClient**](ControllerApi.md#updateRegistryClient) | **PUT** /controller/registry-clients/{id} | Updates a registry client
-
 
 <a name="createBulletin"></a>
 # **createBulletin**
@@ -27,22 +30,12 @@ Method | HTTP request | Description
 
 Creates a new bulletin
 
-
-
 ### Example
 ```java
 // Import classes:
-//import com.github.hermannpencole.nifi.swagger.ApiClient;
-//import com.github.hermannpencole.nifi.swagger.ApiException;
-//import com.github.hermannpencole.nifi.swagger.Configuration;
-//import com.github.hermannpencole.nifi.swagger.auth.*;
-//import com.github.hermannpencole.nifi.swagger.client.ControllerApi;
+//import com.github.asamoal.nifi.swagger.ApiException;
+//import com.github.asamoal.nifi.swagger.client.ControllerApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: auth
-OAuth auth = (OAuth) defaultClient.getAuthentication("auth");
-auth.setAccessToken("YOUR ACCESS TOKEN");
 
 ControllerApi apiInstance = new ControllerApi();
 BulletinEntity body = new BulletinEntity(); // BulletinEntity | The reporting task configuration details.
@@ -67,7 +60,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[auth](../README.md#auth)
+No authorization required
 
 ### HTTP request headers
 
@@ -80,22 +73,12 @@ Name | Type | Description  | Notes
 
 Creates a new controller service
 
-
-
 ### Example
 ```java
 // Import classes:
-//import com.github.hermannpencole.nifi.swagger.ApiClient;
-//import com.github.hermannpencole.nifi.swagger.ApiException;
-//import com.github.hermannpencole.nifi.swagger.Configuration;
-//import com.github.hermannpencole.nifi.swagger.auth.*;
-//import com.github.hermannpencole.nifi.swagger.client.ControllerApi;
+//import com.github.asamoal.nifi.swagger.ApiException;
+//import com.github.asamoal.nifi.swagger.client.ControllerApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: auth
-OAuth auth = (OAuth) defaultClient.getAuthentication("auth");
-auth.setAccessToken("YOUR ACCESS TOKEN");
 
 ControllerApi apiInstance = new ControllerApi();
 ControllerServiceEntity body = new ControllerServiceEntity(); // ControllerServiceEntity | The controller service configuration details.
@@ -120,43 +103,33 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[auth](../README.md#auth)
+No authorization required
 
 ### HTTP request headers
 
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="createRegistryClient"></a>
-# **createRegistryClient**
-> RegistryClientEntity createRegistryClient(body)
+<a name="createFlowRegistryClient"></a>
+# **createFlowRegistryClient**
+> FlowRegistryClientEntity createFlowRegistryClient(body)
 
-Creates a new registry client
-
-
+Creates a new flow registry client
 
 ### Example
 ```java
 // Import classes:
-//import com.github.hermannpencole.nifi.swagger.ApiClient;
-//import com.github.hermannpencole.nifi.swagger.ApiException;
-//import com.github.hermannpencole.nifi.swagger.Configuration;
-//import com.github.hermannpencole.nifi.swagger.auth.*;
-//import com.github.hermannpencole.nifi.swagger.client.ControllerApi;
+//import com.github.asamoal.nifi.swagger.ApiException;
+//import com.github.asamoal.nifi.swagger.client.ControllerApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: auth
-OAuth auth = (OAuth) defaultClient.getAuthentication("auth");
-auth.setAccessToken("YOUR ACCESS TOKEN");
 
 ControllerApi apiInstance = new ControllerApi();
-RegistryClientEntity body = new RegistryClientEntity(); // RegistryClientEntity | The registry configuration details.
+FlowRegistryClientEntity body = new FlowRegistryClientEntity(); // FlowRegistryClientEntity | The flow registry client configuration details.
 try {
-    RegistryClientEntity result = apiInstance.createRegistryClient(body);
+    FlowRegistryClientEntity result = apiInstance.createFlowRegistryClient(body);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling ControllerApi#createRegistryClient");
+    System.err.println("Exception when calling ControllerApi#createFlowRegistryClient");
     e.printStackTrace();
 }
 ```
@@ -165,15 +138,58 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**RegistryClientEntity**](RegistryClientEntity.md)| The registry configuration details. |
+ **body** | [**FlowRegistryClientEntity**](FlowRegistryClientEntity.md)| The flow registry client configuration details. |
 
 ### Return type
 
-[**RegistryClientEntity**](RegistryClientEntity.md)
+[**FlowRegistryClientEntity**](FlowRegistryClientEntity.md)
 
 ### Authorization
 
-[auth](../README.md#auth)
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="createParameterProvider"></a>
+# **createParameterProvider**
+> ParameterProviderEntity createParameterProvider(body)
+
+Creates a new parameter provider
+
+### Example
+```java
+// Import classes:
+//import com.github.asamoal.nifi.swagger.ApiException;
+//import com.github.asamoal.nifi.swagger.client.ControllerApi;
+
+
+ControllerApi apiInstance = new ControllerApi();
+ParameterProviderEntity body = new ParameterProviderEntity(); // ParameterProviderEntity | The parameter provider configuration details.
+try {
+    ParameterProviderEntity result = apiInstance.createParameterProvider(body);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ControllerApi#createParameterProvider");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**ParameterProviderEntity**](ParameterProviderEntity.md)| The parameter provider configuration details. |
+
+### Return type
+
+[**ParameterProviderEntity**](ParameterProviderEntity.md)
+
+### Authorization
+
+No authorization required
 
 ### HTTP request headers
 
@@ -186,22 +202,12 @@ Name | Type | Description  | Notes
 
 Creates a new reporting task
 
-
-
 ### Example
 ```java
 // Import classes:
-//import com.github.hermannpencole.nifi.swagger.ApiClient;
-//import com.github.hermannpencole.nifi.swagger.ApiException;
-//import com.github.hermannpencole.nifi.swagger.Configuration;
-//import com.github.hermannpencole.nifi.swagger.auth.*;
-//import com.github.hermannpencole.nifi.swagger.client.ControllerApi;
+//import com.github.asamoal.nifi.swagger.ApiException;
+//import com.github.asamoal.nifi.swagger.client.ControllerApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: auth
-OAuth auth = (OAuth) defaultClient.getAuthentication("auth");
-auth.setAccessToken("YOUR ACCESS TOKEN");
 
 ControllerApi apiInstance = new ControllerApi();
 ReportingTaskEntity body = new ReportingTaskEntity(); // ReportingTaskEntity | The reporting task configuration details.
@@ -226,11 +232,60 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[auth](../README.md#auth)
+No authorization required
 
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="deleteFlowRegistryClient"></a>
+# **deleteFlowRegistryClient**
+> FlowRegistryClientEntity deleteFlowRegistryClient(id, version, clientId, disconnectedNodeAcknowledged)
+
+Deletes a flow registry client
+
+### Example
+```java
+// Import classes:
+//import com.github.asamoal.nifi.swagger.ApiException;
+//import com.github.asamoal.nifi.swagger.client.ControllerApi;
+
+
+ControllerApi apiInstance = new ControllerApi();
+String id = "id_example"; // String | The flow registry client id.
+String version = "version_example"; // String | The revision is used to verify the client is working with the latest version of the flow.
+String clientId = "clientId_example"; // String | If the client id is not specified, new one will be generated. This value (whether specified or generated) is included in the response.
+Boolean disconnectedNodeAcknowledged = false; // Boolean | Acknowledges that this node is disconnected to allow for mutable requests to proceed.
+try {
+    FlowRegistryClientEntity result = apiInstance.deleteFlowRegistryClient(id, version, clientId, disconnectedNodeAcknowledged);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ControllerApi#deleteFlowRegistryClient");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**| The flow registry client id. |
+ **version** | **String**| The revision is used to verify the client is working with the latest version of the flow. | [optional]
+ **clientId** | **String**| If the client id is not specified, new one will be generated. This value (whether specified or generated) is included in the response. | [optional]
+ **disconnectedNodeAcknowledged** | **Boolean**| Acknowledges that this node is disconnected to allow for mutable requests to proceed. | [optional] [default to false]
+
+### Return type
+
+[**FlowRegistryClientEntity**](FlowRegistryClientEntity.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 <a name="deleteHistory"></a>
@@ -239,22 +294,12 @@ Name | Type | Description  | Notes
 
 Purges history
 
-
-
 ### Example
 ```java
 // Import classes:
-//import com.github.hermannpencole.nifi.swagger.ApiClient;
-//import com.github.hermannpencole.nifi.swagger.ApiException;
-//import com.github.hermannpencole.nifi.swagger.Configuration;
-//import com.github.hermannpencole.nifi.swagger.auth.*;
-//import com.github.hermannpencole.nifi.swagger.client.ControllerApi;
+//import com.github.asamoal.nifi.swagger.ApiException;
+//import com.github.asamoal.nifi.swagger.client.ControllerApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: auth
-OAuth auth = (OAuth) defaultClient.getAuthentication("auth");
-auth.setAccessToken("YOUR ACCESS TOKEN");
 
 ControllerApi apiInstance = new ControllerApi();
 String endDate = "endDate_example"; // String | Purge actions before this date/time.
@@ -279,11 +324,11 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[auth](../README.md#auth)
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 <a name="deleteNode"></a>
@@ -292,22 +337,12 @@ Name | Type | Description  | Notes
 
 Removes a node from the cluster
 
-
-
 ### Example
 ```java
 // Import classes:
-//import com.github.hermannpencole.nifi.swagger.ApiClient;
-//import com.github.hermannpencole.nifi.swagger.ApiException;
-//import com.github.hermannpencole.nifi.swagger.Configuration;
-//import com.github.hermannpencole.nifi.swagger.auth.*;
-//import com.github.hermannpencole.nifi.swagger.client.ControllerApi;
+//import com.github.asamoal.nifi.swagger.ApiException;
+//import com.github.asamoal.nifi.swagger.client.ControllerApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: auth
-OAuth auth = (OAuth) defaultClient.getAuthentication("auth");
-auth.setAccessToken("YOUR ACCESS TOKEN");
 
 ControllerApi apiInstance = new ControllerApi();
 String id = "id_example"; // String | The node id.
@@ -332,68 +367,11 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[auth](../README.md#auth)
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
- - **Accept**: application/json
-
-<a name="deleteRegistryClient"></a>
-# **deleteRegistryClient**
-> RegistryClientEntity deleteRegistryClient(id, version, clientId)
-
-Deletes a registry client
-
-
-
-### Example
-```java
-// Import classes:
-//import com.github.hermannpencole.nifi.swagger.ApiClient;
-//import com.github.hermannpencole.nifi.swagger.ApiException;
-//import com.github.hermannpencole.nifi.swagger.Configuration;
-//import com.github.hermannpencole.nifi.swagger.auth.*;
-//import com.github.hermannpencole.nifi.swagger.client.ControllerApi;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: auth
-OAuth auth = (OAuth) defaultClient.getAuthentication("auth");
-auth.setAccessToken("YOUR ACCESS TOKEN");
-
-ControllerApi apiInstance = new ControllerApi();
-String id = "id_example"; // String | The registry id.
-String version = "version_example"; // String | The revision is used to verify the client is working with the latest version of the flow.
-String clientId = "clientId_example"; // String | If the client id is not specified, new one will be generated. This value (whether specified or generated) is included in the response.
-try {
-    RegistryClientEntity result = apiInstance.deleteRegistryClient(id, version, clientId);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling ControllerApi#deleteRegistryClient");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **String**| The registry id. |
- **version** | **String**| The revision is used to verify the client is working with the latest version of the flow. | [optional]
- **clientId** | **String**| If the client id is not specified, new one will be generated. This value (whether specified or generated) is included in the response. | [optional]
-
-### Return type
-
-[**RegistryClientEntity**](RegistryClientEntity.md)
-
-### Authorization
-
-[auth](../README.md#auth)
-
-### HTTP request headers
-
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 <a name="getCluster"></a>
@@ -407,17 +385,9 @@ Returns the contents of the cluster including all nodes and their status.
 ### Example
 ```java
 // Import classes:
-//import com.github.hermannpencole.nifi.swagger.ApiClient;
-//import com.github.hermannpencole.nifi.swagger.ApiException;
-//import com.github.hermannpencole.nifi.swagger.Configuration;
-//import com.github.hermannpencole.nifi.swagger.auth.*;
-//import com.github.hermannpencole.nifi.swagger.client.ControllerApi;
+//import com.github.asamoal.nifi.swagger.ApiException;
+//import com.github.asamoal.nifi.swagger.client.ControllerApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: auth
-OAuth auth = (OAuth) defaultClient.getAuthentication("auth");
-auth.setAccessToken("YOUR ACCESS TOKEN");
 
 ControllerApi apiInstance = new ControllerApi();
 try {
@@ -438,11 +408,11 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[auth](../README.md#auth)
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 <a name="getControllerConfig"></a>
@@ -451,22 +421,12 @@ This endpoint does not need any parameter.
 
 Retrieves the configuration for this NiFi Controller
 
-
-
 ### Example
 ```java
 // Import classes:
-//import com.github.hermannpencole.nifi.swagger.ApiClient;
-//import com.github.hermannpencole.nifi.swagger.ApiException;
-//import com.github.hermannpencole.nifi.swagger.Configuration;
-//import com.github.hermannpencole.nifi.swagger.auth.*;
-//import com.github.hermannpencole.nifi.swagger.client.ControllerApi;
+//import com.github.asamoal.nifi.swagger.ApiException;
+//import com.github.asamoal.nifi.swagger.client.ControllerApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: auth
-OAuth auth = (OAuth) defaultClient.getAuthentication("auth");
-auth.setAccessToken("YOUR ACCESS TOKEN");
 
 ControllerApi apiInstance = new ControllerApi();
 try {
@@ -487,11 +447,93 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[auth](../README.md#auth)
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="getFlowRegistryClient"></a>
+# **getFlowRegistryClient**
+> FlowRegistryClientEntity getFlowRegistryClient(id)
+
+Gets a flow registry client
+
+### Example
+```java
+// Import classes:
+//import com.github.asamoal.nifi.swagger.ApiException;
+//import com.github.asamoal.nifi.swagger.client.ControllerApi;
+
+
+ControllerApi apiInstance = new ControllerApi();
+String id = "id_example"; // String | The flow registry client id.
+try {
+    FlowRegistryClientEntity result = apiInstance.getFlowRegistryClient(id);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ControllerApi#getFlowRegistryClient");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**| The flow registry client id. |
+
+### Return type
+
+[**FlowRegistryClientEntity**](FlowRegistryClientEntity.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="getFlowRegistryClients"></a>
+# **getFlowRegistryClients**
+> FlowRegistryClientsEntity getFlowRegistryClients()
+
+Gets the listing of available flow registry clients
+
+### Example
+```java
+// Import classes:
+//import com.github.asamoal.nifi.swagger.ApiException;
+//import com.github.asamoal.nifi.swagger.client.ControllerApi;
+
+
+ControllerApi apiInstance = new ControllerApi();
+try {
+    FlowRegistryClientsEntity result = apiInstance.getFlowRegistryClients();
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ControllerApi#getFlowRegistryClients");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**FlowRegistryClientsEntity**](FlowRegistryClientsEntity.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 <a name="getNode"></a>
@@ -500,22 +542,12 @@ This endpoint does not need any parameter.
 
 Gets a node in the cluster
 
-
-
 ### Example
 ```java
 // Import classes:
-//import com.github.hermannpencole.nifi.swagger.ApiClient;
-//import com.github.hermannpencole.nifi.swagger.ApiException;
-//import com.github.hermannpencole.nifi.swagger.Configuration;
-//import com.github.hermannpencole.nifi.swagger.auth.*;
-//import com.github.hermannpencole.nifi.swagger.client.ControllerApi;
+//import com.github.asamoal.nifi.swagger.ApiException;
+//import com.github.asamoal.nifi.swagger.client.ControllerApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: auth
-OAuth auth = (OAuth) defaultClient.getAuthentication("auth");
-auth.setAccessToken("YOUR ACCESS TOKEN");
 
 ControllerApi apiInstance = new ControllerApi();
 String id = "id_example"; // String | The node id.
@@ -540,95 +572,34 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[auth](../README.md#auth)
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="getRegistryClient"></a>
-# **getRegistryClient**
-> RegistryClientEntity getRegistryClient(id)
+<a name="getNodeStatusHistory"></a>
+# **getNodeStatusHistory**
+> ComponentHistoryEntity getNodeStatusHistory()
 
-Gets a registry client
+Gets status history for the node
 
-
+Note: This endpoint is subject to change as NiFi and it&#x27;s REST API evolve.
 
 ### Example
 ```java
 // Import classes:
-//import com.github.hermannpencole.nifi.swagger.ApiClient;
-//import com.github.hermannpencole.nifi.swagger.ApiException;
-//import com.github.hermannpencole.nifi.swagger.Configuration;
-//import com.github.hermannpencole.nifi.swagger.auth.*;
-//import com.github.hermannpencole.nifi.swagger.client.ControllerApi;
+//import com.github.asamoal.nifi.swagger.ApiException;
+//import com.github.asamoal.nifi.swagger.client.ControllerApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: auth
-OAuth auth = (OAuth) defaultClient.getAuthentication("auth");
-auth.setAccessToken("YOUR ACCESS TOKEN");
-
-ControllerApi apiInstance = new ControllerApi();
-String id = "id_example"; // String | The registry id.
-try {
-    RegistryClientEntity result = apiInstance.getRegistryClient(id);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling ControllerApi#getRegistryClient");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **String**| The registry id. |
-
-### Return type
-
-[**RegistryClientEntity**](RegistryClientEntity.md)
-
-### Authorization
-
-[auth](../README.md#auth)
-
-### HTTP request headers
-
- - **Content-Type**: */*
- - **Accept**: application/json
-
-<a name="getRegistryClients"></a>
-# **getRegistryClients**
-> RegistryClientsEntity getRegistryClients()
-
-Gets the listing of available registry clients
-
-
-
-### Example
-```java
-// Import classes:
-//import com.github.hermannpencole.nifi.swagger.ApiClient;
-//import com.github.hermannpencole.nifi.swagger.ApiException;
-//import com.github.hermannpencole.nifi.swagger.Configuration;
-//import com.github.hermannpencole.nifi.swagger.auth.*;
-//import com.github.hermannpencole.nifi.swagger.client.ControllerApi;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: auth
-OAuth auth = (OAuth) defaultClient.getAuthentication("auth");
-auth.setAccessToken("YOUR ACCESS TOKEN");
 
 ControllerApi apiInstance = new ControllerApi();
 try {
-    RegistryClientsEntity result = apiInstance.getRegistryClients();
+    ComponentHistoryEntity result = apiInstance.getNodeStatusHistory();
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling ControllerApi#getRegistryClients");
+    System.err.println("Exception when calling ControllerApi#getNodeStatusHistory");
     e.printStackTrace();
 }
 ```
@@ -638,15 +609,103 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**RegistryClientsEntity**](RegistryClientsEntity.md)
+[**ComponentHistoryEntity**](ComponentHistoryEntity.md)
 
 ### Authorization
 
-[auth](../README.md#auth)
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="getPropertyDescriptor"></a>
+# **getPropertyDescriptor**
+> PropertyDescriptorEntity getPropertyDescriptor(id, propertyName, sensitive)
+
+Gets a flow registry client property descriptor
+
+### Example
+```java
+// Import classes:
+//import com.github.asamoal.nifi.swagger.ApiException;
+//import com.github.asamoal.nifi.swagger.client.ControllerApi;
+
+
+ControllerApi apiInstance = new ControllerApi();
+String id = "id_example"; // String | The flow registry client id.
+String propertyName = "propertyName_example"; // String | The property name.
+Boolean sensitive = false; // Boolean | Property Descriptor requested sensitive status
+try {
+    PropertyDescriptorEntity result = apiInstance.getPropertyDescriptor(id, propertyName, sensitive);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ControllerApi#getPropertyDescriptor");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**| The flow registry client id. |
+ **propertyName** | **String**| The property name. |
+ **sensitive** | **Boolean**| Property Descriptor requested sensitive status | [optional] [default to false]
+
+### Return type
+
+[**PropertyDescriptorEntity**](PropertyDescriptorEntity.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="getRegistryClientTypes"></a>
+# **getRegistryClientTypes**
+> FlowRegistryClientTypesEntity getRegistryClientTypes()
+
+Retrieves the types of flow  that this NiFi supports
+
+Note: This endpoint is subject to change as NiFi and it&#x27;s REST API evolve.
+
+### Example
+```java
+// Import classes:
+//import com.github.asamoal.nifi.swagger.ApiException;
+//import com.github.asamoal.nifi.swagger.client.ControllerApi;
+
+
+ControllerApi apiInstance = new ControllerApi();
+try {
+    FlowRegistryClientTypesEntity result = apiInstance.getRegistryClientTypes();
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ControllerApi#getRegistryClientTypes");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**FlowRegistryClientTypesEntity**](FlowRegistryClientTypesEntity.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 <a name="updateControllerConfig"></a>
@@ -655,22 +714,12 @@ This endpoint does not need any parameter.
 
 Retrieves the configuration for this NiFi
 
-
-
 ### Example
 ```java
 // Import classes:
-//import com.github.hermannpencole.nifi.swagger.ApiClient;
-//import com.github.hermannpencole.nifi.swagger.ApiException;
-//import com.github.hermannpencole.nifi.swagger.Configuration;
-//import com.github.hermannpencole.nifi.swagger.auth.*;
-//import com.github.hermannpencole.nifi.swagger.client.ControllerApi;
+//import com.github.asamoal.nifi.swagger.ApiException;
+//import com.github.asamoal.nifi.swagger.client.ControllerApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: auth
-OAuth auth = (OAuth) defaultClient.getAuthentication("auth");
-auth.setAccessToken("YOUR ACCESS TOKEN");
 
 ControllerApi apiInstance = new ControllerApi();
 ControllerConfigurationEntity body = new ControllerConfigurationEntity(); // ControllerConfigurationEntity | The controller configuration.
@@ -695,7 +744,52 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[auth](../README.md#auth)
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="updateFlowRegistryClient"></a>
+# **updateFlowRegistryClient**
+> FlowRegistryClientEntity updateFlowRegistryClient(body, id)
+
+Updates a flow registry client
+
+### Example
+```java
+// Import classes:
+//import com.github.asamoal.nifi.swagger.ApiException;
+//import com.github.asamoal.nifi.swagger.client.ControllerApi;
+
+
+ControllerApi apiInstance = new ControllerApi();
+FlowRegistryClientEntity body = new FlowRegistryClientEntity(); // FlowRegistryClientEntity | The flow registry client configuration details.
+String id = "id_example"; // String | The flow registry client id.
+try {
+    FlowRegistryClientEntity result = apiInstance.updateFlowRegistryClient(body, id);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ControllerApi#updateFlowRegistryClient");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**FlowRegistryClientEntity**](FlowRegistryClientEntity.md)| The flow registry client configuration details. |
+ **id** | **String**| The flow registry client id. |
+
+### Return type
+
+[**FlowRegistryClientEntity**](FlowRegistryClientEntity.md)
+
+### Authorization
+
+No authorization required
 
 ### HTTP request headers
 
@@ -704,32 +798,22 @@ Name | Type | Description  | Notes
 
 <a name="updateNode"></a>
 # **updateNode**
-> NodeEntity updateNode(id, body)
+> NodeEntity updateNode(body, id)
 
 Updates a node in the cluster
-
-
 
 ### Example
 ```java
 // Import classes:
-//import com.github.hermannpencole.nifi.swagger.ApiClient;
-//import com.github.hermannpencole.nifi.swagger.ApiException;
-//import com.github.hermannpencole.nifi.swagger.Configuration;
-//import com.github.hermannpencole.nifi.swagger.auth.*;
-//import com.github.hermannpencole.nifi.swagger.client.ControllerApi;
+//import com.github.asamoal.nifi.swagger.ApiException;
+//import com.github.asamoal.nifi.swagger.client.ControllerApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: auth
-OAuth auth = (OAuth) defaultClient.getAuthentication("auth");
-auth.setAccessToken("YOUR ACCESS TOKEN");
 
 ControllerApi apiInstance = new ControllerApi();
-String id = "id_example"; // String | The node id.
 NodeEntity body = new NodeEntity(); // NodeEntity | The node configuration. The only configuration that will be honored at this endpoint is the status.
+String id = "id_example"; // String | The node id.
 try {
-    NodeEntity result = apiInstance.updateNode(id, body);
+    NodeEntity result = apiInstance.updateNode(body, id);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ControllerApi#updateNode");
@@ -741,8 +825,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| The node id. |
  **body** | [**NodeEntity**](NodeEntity.md)| The node configuration. The only configuration that will be honored at this endpoint is the status. |
+ **id** | **String**| The node id. |
 
 ### Return type
 
@@ -750,62 +834,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[auth](../README.md#auth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-<a name="updateRegistryClient"></a>
-# **updateRegistryClient**
-> RegistryClientEntity updateRegistryClient(id, body)
-
-Updates a registry client
-
-
-
-### Example
-```java
-// Import classes:
-//import com.github.hermannpencole.nifi.swagger.ApiClient;
-//import com.github.hermannpencole.nifi.swagger.ApiException;
-//import com.github.hermannpencole.nifi.swagger.Configuration;
-//import com.github.hermannpencole.nifi.swagger.auth.*;
-//import com.github.hermannpencole.nifi.swagger.client.ControllerApi;
-
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: auth
-OAuth auth = (OAuth) defaultClient.getAuthentication("auth");
-auth.setAccessToken("YOUR ACCESS TOKEN");
-
-ControllerApi apiInstance = new ControllerApi();
-String id = "id_example"; // String | The registry id.
-RegistryClientEntity body = new RegistryClientEntity(); // RegistryClientEntity | The registry configuration details.
-try {
-    RegistryClientEntity result = apiInstance.updateRegistryClient(id, body);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling ControllerApi#updateRegistryClient");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **String**| The registry id. |
- **body** | [**RegistryClientEntity**](RegistryClientEntity.md)| The registry configuration details. |
-
-### Return type
-
-[**RegistryClientEntity**](RegistryClientEntity.md)
-
-### Authorization
-
-[auth](../README.md#auth)
+No authorization required
 
 ### HTTP request headers
 

@@ -1,6 +1,6 @@
 # LabelsApi
 
-All URIs are relative to *http://localhost/nifi-api*
+All URIs are relative to */nifi-api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -8,29 +8,18 @@ Method | HTTP request | Description
 [**removeLabel**](LabelsApi.md#removeLabel) | **DELETE** /labels/{id} | Deletes a label
 [**updateLabel**](LabelsApi.md#updateLabel) | **PUT** /labels/{id} | Updates a label
 
-
 <a name="getLabel"></a>
 # **getLabel**
 > LabelEntity getLabel(id)
 
 Gets a label
 
-
-
 ### Example
 ```java
 // Import classes:
-//import com.github.hermannpencole.nifi.swagger.ApiClient;
-//import com.github.hermannpencole.nifi.swagger.ApiException;
-//import com.github.hermannpencole.nifi.swagger.Configuration;
-//import com.github.hermannpencole.nifi.swagger.auth.*;
-//import com.github.hermannpencole.nifi.swagger.client.LabelsApi;
+//import com.github.asamoal.nifi.swagger.ApiException;
+//import com.github.asamoal.nifi.swagger.client.LabelsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: auth
-OAuth auth = (OAuth) defaultClient.getAuthentication("auth");
-auth.setAccessToken("YOUR ACCESS TOKEN");
 
 LabelsApi apiInstance = new LabelsApi();
 String id = "id_example"; // String | The label id.
@@ -55,42 +44,33 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[auth](../README.md#auth)
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 <a name="removeLabel"></a>
 # **removeLabel**
-> LabelEntity removeLabel(id, version, clientId)
+> LabelEntity removeLabel(id, version, clientId, disconnectedNodeAcknowledged)
 
 Deletes a label
-
-
 
 ### Example
 ```java
 // Import classes:
-//import com.github.hermannpencole.nifi.swagger.ApiClient;
-//import com.github.hermannpencole.nifi.swagger.ApiException;
-//import com.github.hermannpencole.nifi.swagger.Configuration;
-//import com.github.hermannpencole.nifi.swagger.auth.*;
-//import com.github.hermannpencole.nifi.swagger.client.LabelsApi;
+//import com.github.asamoal.nifi.swagger.ApiException;
+//import com.github.asamoal.nifi.swagger.client.LabelsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: auth
-OAuth auth = (OAuth) defaultClient.getAuthentication("auth");
-auth.setAccessToken("YOUR ACCESS TOKEN");
 
 LabelsApi apiInstance = new LabelsApi();
 String id = "id_example"; // String | The label id.
 String version = "version_example"; // String | The revision is used to verify the client is working with the latest version of the flow.
 String clientId = "clientId_example"; // String | If the client id is not specified, new one will be generated. This value (whether specified or generated) is included in the response.
+Boolean disconnectedNodeAcknowledged = false; // Boolean | Acknowledges that this node is disconnected to allow for mutable requests to proceed.
 try {
-    LabelEntity result = apiInstance.removeLabel(id, version, clientId);
+    LabelEntity result = apiInstance.removeLabel(id, version, clientId, disconnectedNodeAcknowledged);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling LabelsApi#removeLabel");
@@ -105,6 +85,7 @@ Name | Type | Description  | Notes
  **id** | **String**| The label id. |
  **version** | **String**| The revision is used to verify the client is working with the latest version of the flow. | [optional]
  **clientId** | **String**| If the client id is not specified, new one will be generated. This value (whether specified or generated) is included in the response. | [optional]
+ **disconnectedNodeAcknowledged** | **Boolean**| Acknowledges that this node is disconnected to allow for mutable requests to proceed. | [optional] [default to false]
 
 ### Return type
 
@@ -112,41 +93,31 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[auth](../README.md#auth)
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 <a name="updateLabel"></a>
 # **updateLabel**
-> LabelEntity updateLabel(id, body)
+> LabelEntity updateLabel(body, id)
 
 Updates a label
-
-
 
 ### Example
 ```java
 // Import classes:
-//import com.github.hermannpencole.nifi.swagger.ApiClient;
-//import com.github.hermannpencole.nifi.swagger.ApiException;
-//import com.github.hermannpencole.nifi.swagger.Configuration;
-//import com.github.hermannpencole.nifi.swagger.auth.*;
-//import com.github.hermannpencole.nifi.swagger.client.LabelsApi;
+//import com.github.asamoal.nifi.swagger.ApiException;
+//import com.github.asamoal.nifi.swagger.client.LabelsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: auth
-OAuth auth = (OAuth) defaultClient.getAuthentication("auth");
-auth.setAccessToken("YOUR ACCESS TOKEN");
 
 LabelsApi apiInstance = new LabelsApi();
-String id = "id_example"; // String | The label id.
 LabelEntity body = new LabelEntity(); // LabelEntity | The label configuration details.
+String id = "id_example"; // String | The label id.
 try {
-    LabelEntity result = apiInstance.updateLabel(id, body);
+    LabelEntity result = apiInstance.updateLabel(body, id);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling LabelsApi#updateLabel");
@@ -158,8 +129,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| The label id. |
  **body** | [**LabelEntity**](LabelEntity.md)| The label configuration details. |
+ **id** | **String**| The label id. |
 
 ### Return type
 
@@ -167,7 +138,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[auth](../README.md#auth)
+No authorization required
 
 ### HTTP request headers
 

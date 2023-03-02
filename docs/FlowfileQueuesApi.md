@@ -1,6 +1,6 @@
 # FlowfileQueuesApi
 
-All URIs are relative to *http://localhost/nifi-api*
+All URIs are relative to */nifi-api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -13,29 +13,18 @@ Method | HTTP request | Description
 [**getListingRequest**](FlowfileQueuesApi.md#getListingRequest) | **GET** /flowfile-queues/{id}/listing-requests/{listing-request-id} | Gets the current status of a listing request for the specified connection.
 [**removeDropRequest**](FlowfileQueuesApi.md#removeDropRequest) | **DELETE** /flowfile-queues/{id}/drop-requests/{drop-request-id} | Cancels and/or removes a request to drop the contents of this connection.
 
-
 <a name="createDropRequest"></a>
 # **createDropRequest**
 > DropRequestEntity createDropRequest(id)
 
 Creates a request to drop the contents of the queue in this connection.
 
-
-
 ### Example
 ```java
 // Import classes:
-//import com.github.hermannpencole.nifi.swagger.ApiClient;
-//import com.github.hermannpencole.nifi.swagger.ApiException;
-//import com.github.hermannpencole.nifi.swagger.Configuration;
-//import com.github.hermannpencole.nifi.swagger.auth.*;
-//import com.github.hermannpencole.nifi.swagger.client.FlowfileQueuesApi;
+//import com.github.asamoal.nifi.swagger.ApiException;
+//import com.github.asamoal.nifi.swagger.client.FlowfileQueuesApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: auth
-OAuth auth = (OAuth) defaultClient.getAuthentication("auth");
-auth.setAccessToken("YOUR ACCESS TOKEN");
 
 FlowfileQueuesApi apiInstance = new FlowfileQueuesApi();
 String id = "id_example"; // String | The connection id.
@@ -60,11 +49,11 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[auth](../README.md#auth)
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 <a name="createFlowFileListing"></a>
@@ -73,22 +62,12 @@ Name | Type | Description  | Notes
 
 Lists the contents of the queue in this connection.
 
-
-
 ### Example
 ```java
 // Import classes:
-//import com.github.hermannpencole.nifi.swagger.ApiClient;
-//import com.github.hermannpencole.nifi.swagger.ApiException;
-//import com.github.hermannpencole.nifi.swagger.Configuration;
-//import com.github.hermannpencole.nifi.swagger.auth.*;
-//import com.github.hermannpencole.nifi.swagger.client.FlowfileQueuesApi;
+//import com.github.asamoal.nifi.swagger.ApiException;
+//import com.github.asamoal.nifi.swagger.client.FlowfileQueuesApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: auth
-OAuth auth = (OAuth) defaultClient.getAuthentication("auth");
-auth.setAccessToken("YOUR ACCESS TOKEN");
 
 FlowfileQueuesApi apiInstance = new FlowfileQueuesApi();
 String id = "id_example"; // String | The connection id.
@@ -113,11 +92,11 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[auth](../README.md#auth)
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 <a name="deleteListingRequest"></a>
@@ -126,22 +105,12 @@ Name | Type | Description  | Notes
 
 Cancels and/or removes a request to list the contents of this connection.
 
-
-
 ### Example
 ```java
 // Import classes:
-//import com.github.hermannpencole.nifi.swagger.ApiClient;
-//import com.github.hermannpencole.nifi.swagger.ApiException;
-//import com.github.hermannpencole.nifi.swagger.Configuration;
-//import com.github.hermannpencole.nifi.swagger.auth.*;
-//import com.github.hermannpencole.nifi.swagger.client.FlowfileQueuesApi;
+//import com.github.asamoal.nifi.swagger.ApiException;
+//import com.github.asamoal.nifi.swagger.client.FlowfileQueuesApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: auth
-OAuth auth = (OAuth) defaultClient.getAuthentication("auth");
-auth.setAccessToken("YOUR ACCESS TOKEN");
 
 FlowfileQueuesApi apiInstance = new FlowfileQueuesApi();
 String id = "id_example"; // String | The connection id.
@@ -168,11 +137,11 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[auth](../README.md#auth)
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 <a name="downloadFlowFileContent"></a>
@@ -181,22 +150,12 @@ Name | Type | Description  | Notes
 
 Gets the content for a FlowFile in a Connection.
 
-
-
 ### Example
 ```java
 // Import classes:
-//import com.github.hermannpencole.nifi.swagger.ApiClient;
-//import com.github.hermannpencole.nifi.swagger.ApiException;
-//import com.github.hermannpencole.nifi.swagger.Configuration;
-//import com.github.hermannpencole.nifi.swagger.auth.*;
-//import com.github.hermannpencole.nifi.swagger.client.FlowfileQueuesApi;
+//import com.github.asamoal.nifi.swagger.ApiException;
+//import com.github.asamoal.nifi.swagger.client.FlowfileQueuesApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: auth
-OAuth auth = (OAuth) defaultClient.getAuthentication("auth");
-auth.setAccessToken("YOUR ACCESS TOKEN");
 
 FlowfileQueuesApi apiInstance = new FlowfileQueuesApi();
 String id = "id_example"; // String | The connection id.
@@ -227,11 +186,11 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[auth](../README.md#auth)
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: */*
 
 <a name="getDropRequest"></a>
@@ -240,22 +199,12 @@ Name | Type | Description  | Notes
 
 Gets the current status of a drop request for the specified connection.
 
-
-
 ### Example
 ```java
 // Import classes:
-//import com.github.hermannpencole.nifi.swagger.ApiClient;
-//import com.github.hermannpencole.nifi.swagger.ApiException;
-//import com.github.hermannpencole.nifi.swagger.Configuration;
-//import com.github.hermannpencole.nifi.swagger.auth.*;
-//import com.github.hermannpencole.nifi.swagger.client.FlowfileQueuesApi;
+//import com.github.asamoal.nifi.swagger.ApiException;
+//import com.github.asamoal.nifi.swagger.client.FlowfileQueuesApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: auth
-OAuth auth = (OAuth) defaultClient.getAuthentication("auth");
-auth.setAccessToken("YOUR ACCESS TOKEN");
 
 FlowfileQueuesApi apiInstance = new FlowfileQueuesApi();
 String id = "id_example"; // String | The connection id.
@@ -282,11 +231,11 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[auth](../README.md#auth)
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 <a name="getFlowFile"></a>
@@ -295,22 +244,12 @@ Name | Type | Description  | Notes
 
 Gets a FlowFile from a Connection.
 
-
-
 ### Example
 ```java
 // Import classes:
-//import com.github.hermannpencole.nifi.swagger.ApiClient;
-//import com.github.hermannpencole.nifi.swagger.ApiException;
-//import com.github.hermannpencole.nifi.swagger.Configuration;
-//import com.github.hermannpencole.nifi.swagger.auth.*;
-//import com.github.hermannpencole.nifi.swagger.client.FlowfileQueuesApi;
+//import com.github.asamoal.nifi.swagger.ApiException;
+//import com.github.asamoal.nifi.swagger.client.FlowfileQueuesApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: auth
-OAuth auth = (OAuth) defaultClient.getAuthentication("auth");
-auth.setAccessToken("YOUR ACCESS TOKEN");
 
 FlowfileQueuesApi apiInstance = new FlowfileQueuesApi();
 String id = "id_example"; // String | The connection id.
@@ -339,11 +278,11 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[auth](../README.md#auth)
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 <a name="getListingRequest"></a>
@@ -352,22 +291,12 @@ Name | Type | Description  | Notes
 
 Gets the current status of a listing request for the specified connection.
 
-
-
 ### Example
 ```java
 // Import classes:
-//import com.github.hermannpencole.nifi.swagger.ApiClient;
-//import com.github.hermannpencole.nifi.swagger.ApiException;
-//import com.github.hermannpencole.nifi.swagger.Configuration;
-//import com.github.hermannpencole.nifi.swagger.auth.*;
-//import com.github.hermannpencole.nifi.swagger.client.FlowfileQueuesApi;
+//import com.github.asamoal.nifi.swagger.ApiException;
+//import com.github.asamoal.nifi.swagger.client.FlowfileQueuesApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: auth
-OAuth auth = (OAuth) defaultClient.getAuthentication("auth");
-auth.setAccessToken("YOUR ACCESS TOKEN");
 
 FlowfileQueuesApi apiInstance = new FlowfileQueuesApi();
 String id = "id_example"; // String | The connection id.
@@ -394,11 +323,11 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[auth](../README.md#auth)
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 <a name="removeDropRequest"></a>
@@ -407,22 +336,12 @@ Name | Type | Description  | Notes
 
 Cancels and/or removes a request to drop the contents of this connection.
 
-
-
 ### Example
 ```java
 // Import classes:
-//import com.github.hermannpencole.nifi.swagger.ApiClient;
-//import com.github.hermannpencole.nifi.swagger.ApiException;
-//import com.github.hermannpencole.nifi.swagger.Configuration;
-//import com.github.hermannpencole.nifi.swagger.auth.*;
-//import com.github.hermannpencole.nifi.swagger.client.FlowfileQueuesApi;
+//import com.github.asamoal.nifi.swagger.ApiException;
+//import com.github.asamoal.nifi.swagger.client.FlowfileQueuesApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: auth
-OAuth auth = (OAuth) defaultClient.getAuthentication("auth");
-auth.setAccessToken("YOUR ACCESS TOKEN");
 
 FlowfileQueuesApi apiInstance = new FlowfileQueuesApi();
 String id = "id_example"; // String | The connection id.
@@ -449,10 +368,10 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[auth](../README.md#auth)
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 

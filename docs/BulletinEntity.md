@@ -1,4 +1,3 @@
-
 # BulletinEntity
 
 ## Properties
@@ -11,6 +10,3 @@ Name | Type | Description | Notes
 **nodeAddress** | **String** |  |  [optional]
 **canRead** | **Boolean** | Indicates whether the user can read a given resource. |  [optional]
 **bulletin** | [**BulletinDTO**](BulletinDTO.md) |  |  [optional]
-
-
-

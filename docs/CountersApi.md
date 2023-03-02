@@ -1,12 +1,11 @@
 # CountersApi
 
-All URIs are relative to *http://localhost/nifi-api*
+All URIs are relative to */nifi-api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**getCounters**](CountersApi.md#getCounters) | **GET** /counters | Gets the current counters for this NiFi
 [**updateCounter**](CountersApi.md#updateCounter) | **PUT** /counters/{id} | Updates the specified counter. This will reset the counter value to 0
-
 
 <a name="getCounters"></a>
 # **getCounters**
@@ -14,22 +13,14 @@ Method | HTTP request | Description
 
 Gets the current counters for this NiFi
 
-Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
+Note: This endpoint is subject to change as NiFi and it&#x27;s REST API evolve.
 
 ### Example
 ```java
 // Import classes:
-//import com.github.hermannpencole.nifi.swagger.ApiClient;
-//import com.github.hermannpencole.nifi.swagger.ApiException;
-//import com.github.hermannpencole.nifi.swagger.Configuration;
-//import com.github.hermannpencole.nifi.swagger.auth.*;
-//import com.github.hermannpencole.nifi.swagger.client.CountersApi;
+//import com.github.asamoal.nifi.swagger.ApiException;
+//import com.github.asamoal.nifi.swagger.client.CountersApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: auth
-OAuth auth = (OAuth) defaultClient.getAuthentication("auth");
-auth.setAccessToken("YOUR ACCESS TOKEN");
 
 CountersApi apiInstance = new CountersApi();
 Boolean nodewise = false; // Boolean | Whether or not to include the breakdown per node. Optional, defaults to false
@@ -56,11 +47,11 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[auth](../README.md#auth)
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 <a name="updateCounter"></a>
@@ -69,22 +60,14 @@ Name | Type | Description  | Notes
 
 Updates the specified counter. This will reset the counter value to 0
 
-Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
+Note: This endpoint is subject to change as NiFi and it&#x27;s REST API evolve.
 
 ### Example
 ```java
 // Import classes:
-//import com.github.hermannpencole.nifi.swagger.ApiClient;
-//import com.github.hermannpencole.nifi.swagger.ApiException;
-//import com.github.hermannpencole.nifi.swagger.Configuration;
-//import com.github.hermannpencole.nifi.swagger.auth.*;
-//import com.github.hermannpencole.nifi.swagger.client.CountersApi;
+//import com.github.asamoal.nifi.swagger.ApiException;
+//import com.github.asamoal.nifi.swagger.client.CountersApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: auth
-OAuth auth = (OAuth) defaultClient.getAuthentication("auth");
-auth.setAccessToken("YOUR ACCESS TOKEN");
 
 CountersApi apiInstance = new CountersApi();
 String id = "id_example"; // String | The id of the counter.
@@ -109,10 +92,10 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[auth](../README.md#auth)
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 

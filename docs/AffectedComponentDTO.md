@@ -1,4 +1,3 @@
-
 # AffectedComponentDTO
 
 ## Properties
@@ -12,7 +11,6 @@ Name | Type | Description | Notes
 **activeThreadCount** | **Integer** | The number of active threads for the referencing component. |  [optional]
 **validationErrors** | **List&lt;String&gt;** | The validation errors for the component. |  [optional]
 
-
 <a name="ReferenceTypeEnum"></a>
 ## Enum: ReferenceTypeEnum
 Name | Value
@@ -23,6 +21,3 @@ INPUT_PORT | &quot;INPUT_PORT&quot;
 OUTPUT_PORT | &quot;OUTPUT_PORT&quot;
 REMOTE_INPUT_PORT | &quot;REMOTE_INPUT_PORT&quot;
 REMOTE_OUTPUT_PORT | &quot;REMOTE_OUTPUT_PORT&quot;
-
-
-

@@ -1,4 +1,3 @@
-
 # ControllerDTO
 
 ## Properties
@@ -21,6 +20,3 @@ Name | Type | Description | Notes
 **instanceId** | **String** | If clustered, the id of the Cluster Manager, otherwise the id of the NiFi. |  [optional]
 **inputPorts** | [**List&lt;PortDTO&gt;**](PortDTO.md) | The input ports available to send data to for the NiFi. |  [optional]
 **outputPorts** | [**List&lt;PortDTO&gt;**](PortDTO.md) | The output ports available to received data from the NiFi. |  [optional]
-
-
-

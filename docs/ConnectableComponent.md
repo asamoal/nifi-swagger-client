@@ -1,4 +1,3 @@
-
 # ConnectableComponent
 
 ## Properties
@@ -9,7 +8,7 @@ Name | Type | Description | Notes
 **groupId** | **String** | The id of the group that the connectable component resides in | 
 **name** | **String** | The name of the connectable component |  [optional]
 **comments** | **String** | The comments for the connectable component. |  [optional]
-
+**instanceIdentifier** | **String** | The instance ID of an existing component that is described by this VersionedComponent, or null if this is not mapped to an instantiated component |  [optional]
 
 <a name="TypeEnum"></a>
 ## Enum: TypeEnum
@@ -21,6 +20,3 @@ REMOTE_OUTPUT_PORT | &quot;REMOTE_OUTPUT_PORT&quot;
 INPUT_PORT | &quot;INPUT_PORT&quot;
 OUTPUT_PORT | &quot;OUTPUT_PORT&quot;
 FUNNEL | &quot;FUNNEL&quot;
-
-
-

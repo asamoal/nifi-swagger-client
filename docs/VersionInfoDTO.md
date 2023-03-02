@@ -1,4 +1,3 @@
-
 # VersionInfoDTO
 
 ## Properties
@@ -14,6 +13,3 @@ Name | Type | Description | Notes
 **buildRevision** | **String** | Build revision or commit hash |  [optional]
 **buildBranch** | **String** | Build branch |  [optional]
 **buildTimestamp** | [**OffsetDateTime**](OffsetDateTime.md) | Build timestamp |  [optional]
-
-
-

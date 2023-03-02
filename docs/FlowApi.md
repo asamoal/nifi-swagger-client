@@ -1,6 +1,6 @@
 # FlowApi
 
-All URIs are relative to *http://localhost/nifi-api*
+All URIs are relative to */nifi-api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -14,29 +14,36 @@ Method | HTTP request | Description
 [**getBulletins**](FlowApi.md#getBulletins) | **GET** /flow/controller/bulletins | Retrieves Controller level bulletins
 [**getClusterSummary**](FlowApi.md#getClusterSummary) | **GET** /flow/cluster/summary | The cluster summary for this NiFi
 [**getComponentHistory**](FlowApi.md#getComponentHistory) | **GET** /flow/history/components/{componentId} | Gets configuration history for a component
+[**getConnectionStatistics**](FlowApi.md#getConnectionStatistics) | **GET** /flow/connections/{id}/statistics | Gets statistics for a connection
 [**getConnectionStatus**](FlowApi.md#getConnectionStatus) | **GET** /flow/connections/{id}/status | Gets status for a connection
 [**getConnectionStatusHistory**](FlowApi.md#getConnectionStatusHistory) | **GET** /flow/connections/{id}/status/history | Gets the status history for a connection
 [**getControllerServiceTypes**](FlowApi.md#getControllerServiceTypes) | **GET** /flow/controller-service-types | Retrieves the types of controller services that this NiFi supports
-[**getControllerServicesFromController**](FlowApi.md#getControllerServicesFromController) | **GET** /flow/controller/controller-services | Gets all controller services
+[**getControllerServicesFromController**](FlowApi.md#getControllerServicesFromController) | **GET** /flow/controller/controller-services | Gets controller services for reporting tasks
 [**getControllerServicesFromGroup**](FlowApi.md#getControllerServicesFromGroup) | **GET** /flow/process-groups/{id}/controller-services | Gets all controller services
 [**getControllerStatus**](FlowApi.md#getControllerStatus) | **GET** /flow/status | Gets the current status of this NiFi
 [**getCurrentUser**](FlowApi.md#getCurrentUser) | **GET** /flow/current-user | Retrieves the user identity of the user making the request
+[**getDetails**](FlowApi.md#getDetails) | **GET** /flow/registries/{registry-id}/buckets/{bucket-id}/flows/{flow-id}/details | Gets the details of a flow from the specified registry and bucket for the specified flow for the current user
 [**getFlow**](FlowApi.md#getFlow) | **GET** /flow/process-groups/{id} | Gets a process group
 [**getFlowConfig**](FlowApi.md#getFlowConfig) | **GET** /flow/config | Retrieves the configuration for this NiFi flow
+[**getFlowMetrics**](FlowApi.md#getFlowMetrics) | **GET** /flow/metrics/{producer} | Gets all metrics for the flow from a particular node
 [**getFlows**](FlowApi.md#getFlows) | **GET** /flow/registries/{registry-id}/buckets/{bucket-id}/flows | Gets the flows from the specified registry and bucket for the current user
 [**getInputPortStatus**](FlowApi.md#getInputPortStatus) | **GET** /flow/input-ports/{id}/status | Gets status for an input port
 [**getOutputPortStatus**](FlowApi.md#getOutputPortStatus) | **GET** /flow/output-ports/{id}/status | Gets status for an output port
+[**getParameterContexts**](FlowApi.md#getParameterContexts) | **GET** /flow/parameter-contexts | Gets all Parameter Contexts
+[**getParameterProviderTypes**](FlowApi.md#getParameterProviderTypes) | **GET** /flow/parameter-provider-types | Retrieves the types of parameter providers that this NiFi supports
+[**getParameterProviders**](FlowApi.md#getParameterProviders) | **GET** /flow/parameter-providers | Gets all parameter providers
 [**getPrioritizers**](FlowApi.md#getPrioritizers) | **GET** /flow/prioritizers | Retrieves the types of prioritizers that this NiFi supports
 [**getProcessGroupStatus**](FlowApi.md#getProcessGroupStatus) | **GET** /flow/process-groups/{id}/status | Gets the status for a process group
 [**getProcessGroupStatusHistory**](FlowApi.md#getProcessGroupStatusHistory) | **GET** /flow/process-groups/{id}/status/history | Gets status history for a remote process group
 [**getProcessorStatus**](FlowApi.md#getProcessorStatus) | **GET** /flow/processors/{id}/status | Gets status for a processor
 [**getProcessorStatusHistory**](FlowApi.md#getProcessorStatusHistory) | **GET** /flow/processors/{id}/status/history | Gets status history for a processor
 [**getProcessorTypes**](FlowApi.md#getProcessorTypes) | **GET** /flow/processor-types | Retrieves the types of processors that this NiFi supports
-[**getRegistries**](FlowApi.md#getRegistries) | **GET** /flow/registries | Gets the listing of available registries
+[**getRegistryClients**](FlowApi.md#getRegistryClients) | **GET** /flow/registries | Gets the listing of available flow registry clients
 [**getRemoteProcessGroupStatus**](FlowApi.md#getRemoteProcessGroupStatus) | **GET** /flow/remote-process-groups/{id}/status | Gets status for a remote process group
 [**getRemoteProcessGroupStatusHistory**](FlowApi.md#getRemoteProcessGroupStatusHistory) | **GET** /flow/remote-process-groups/{id}/status/history | Gets the status history
 [**getReportingTaskTypes**](FlowApi.md#getReportingTaskTypes) | **GET** /flow/reporting-task-types | Retrieves the types of reporting tasks that this NiFi supports
 [**getReportingTasks**](FlowApi.md#getReportingTasks) | **GET** /flow/reporting-tasks | Gets all reporting tasks
+[**getRuntimeManifest**](FlowApi.md#getRuntimeManifest) | **GET** /flow/runtime-manifest | Retrieves the runtime manifest for this NiFi instance.
 [**getTemplates**](FlowApi.md#getTemplates) | **GET** /flow/templates | Gets all templates
 [**getVersions**](FlowApi.md#getVersions) | **GET** /flow/registries/{registry-id}/buckets/{bucket-id}/flows/{flow-id}/versions | Gets the flow versions from the specified registry and bucket for the specified flow for the current user
 [**queryHistory**](FlowApi.md#queryHistory) | **GET** /flow/history | Gets configuration history
@@ -44,35 +51,24 @@ Method | HTTP request | Description
 [**searchCluster**](FlowApi.md#searchCluster) | **GET** /flow/cluster/search-results | Searches the cluster for a node with the specified address
 [**searchFlow**](FlowApi.md#searchFlow) | **GET** /flow/search-results | Performs a search against this NiFi using the specified search term
 
-
 <a name="activateControllerServices"></a>
 # **activateControllerServices**
-> ActivateControllerServicesEntity activateControllerServices(id, body)
+> ActivateControllerServicesEntity activateControllerServices(body, id)
 
 Enable or disable Controller Services in the specified Process Group.
-
-
 
 ### Example
 ```java
 // Import classes:
-//import com.github.hermannpencole.nifi.swagger.ApiClient;
-//import com.github.hermannpencole.nifi.swagger.ApiException;
-//import com.github.hermannpencole.nifi.swagger.Configuration;
-//import com.github.hermannpencole.nifi.swagger.auth.*;
-//import com.github.hermannpencole.nifi.swagger.client.FlowApi;
+//import com.github.asamoal.nifi.swagger.ApiException;
+//import com.github.asamoal.nifi.swagger.client.FlowApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: auth
-OAuth auth = (OAuth) defaultClient.getAuthentication("auth");
-auth.setAccessToken("YOUR ACCESS TOKEN");
 
 FlowApi apiInstance = new FlowApi();
-String id = "id_example"; // String | The process group id.
 ActivateControllerServicesEntity body = new ActivateControllerServicesEntity(); // ActivateControllerServicesEntity | The request to schedule or unschedule. If the comopnents in the request are not specified, all authorized components will be considered.
+String id = "id_example"; // String | The process group id.
 try {
-    ActivateControllerServicesEntity result = apiInstance.activateControllerServices(id, body);
+    ActivateControllerServicesEntity result = apiInstance.activateControllerServices(body, id);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling FlowApi#activateControllerServices");
@@ -84,8 +80,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| The process group id. |
  **body** | [**ActivateControllerServicesEntity**](ActivateControllerServicesEntity.md)| The request to schedule or unschedule. If the comopnents in the request are not specified, all authorized components will be considered. |
+ **id** | **String**| The process group id. |
 
 ### Return type
 
@@ -93,7 +89,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[auth](../README.md#auth)
+No authorization required
 
 ### HTTP request headers
 
@@ -106,22 +102,12 @@ Name | Type | Description  | Notes
 
 Generates a client id.
 
-
-
 ### Example
 ```java
 // Import classes:
-//import com.github.hermannpencole.nifi.swagger.ApiClient;
-//import com.github.hermannpencole.nifi.swagger.ApiException;
-//import com.github.hermannpencole.nifi.swagger.Configuration;
-//import com.github.hermannpencole.nifi.swagger.auth.*;
-//import com.github.hermannpencole.nifi.swagger.client.FlowApi;
+//import com.github.asamoal.nifi.swagger.ApiException;
+//import com.github.asamoal.nifi.swagger.client.FlowApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: auth
-OAuth auth = (OAuth) defaultClient.getAuthentication("auth");
-auth.setAccessToken("YOUR ACCESS TOKEN");
 
 FlowApi apiInstance = new FlowApi();
 try {
@@ -142,11 +128,11 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[auth](../README.md#auth)
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: text/plain
 
 <a name="getAboutInfo"></a>
@@ -155,22 +141,12 @@ This endpoint does not need any parameter.
 
 Retrieves details about this NiFi to put in the About dialog
 
-
-
 ### Example
 ```java
 // Import classes:
-//import com.github.hermannpencole.nifi.swagger.ApiClient;
-//import com.github.hermannpencole.nifi.swagger.ApiException;
-//import com.github.hermannpencole.nifi.swagger.Configuration;
-//import com.github.hermannpencole.nifi.swagger.auth.*;
-//import com.github.hermannpencole.nifi.swagger.client.FlowApi;
+//import com.github.asamoal.nifi.swagger.ApiException;
+//import com.github.asamoal.nifi.swagger.client.FlowApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: auth
-OAuth auth = (OAuth) defaultClient.getAuthentication("auth");
-auth.setAccessToken("YOUR ACCESS TOKEN");
 
 FlowApi apiInstance = new FlowApi();
 try {
@@ -191,11 +167,11 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[auth](../README.md#auth)
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 <a name="getAction"></a>
@@ -204,22 +180,14 @@ This endpoint does not need any parameter.
 
 Gets an action
 
-Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
+Note: This endpoint is subject to change as NiFi and it&#x27;s REST API evolve.
 
 ### Example
 ```java
 // Import classes:
-//import com.github.hermannpencole.nifi.swagger.ApiClient;
-//import com.github.hermannpencole.nifi.swagger.ApiException;
-//import com.github.hermannpencole.nifi.swagger.Configuration;
-//import com.github.hermannpencole.nifi.swagger.auth.*;
-//import com.github.hermannpencole.nifi.swagger.client.FlowApi;
+//import com.github.asamoal.nifi.swagger.ApiException;
+//import com.github.asamoal.nifi.swagger.client.FlowApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: auth
-OAuth auth = (OAuth) defaultClient.getAuthentication("auth");
-auth.setAccessToken("YOUR ACCESS TOKEN");
 
 FlowApi apiInstance = new FlowApi();
 String id = "id_example"; // String | The action id.
@@ -244,11 +212,11 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[auth](../README.md#auth)
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 <a name="getBanners"></a>
@@ -257,22 +225,12 @@ Name | Type | Description  | Notes
 
 Retrieves the banners for this NiFi
 
-
-
 ### Example
 ```java
 // Import classes:
-//import com.github.hermannpencole.nifi.swagger.ApiClient;
-//import com.github.hermannpencole.nifi.swagger.ApiException;
-//import com.github.hermannpencole.nifi.swagger.Configuration;
-//import com.github.hermannpencole.nifi.swagger.auth.*;
-//import com.github.hermannpencole.nifi.swagger.client.FlowApi;
+//import com.github.asamoal.nifi.swagger.ApiException;
+//import com.github.asamoal.nifi.swagger.client.FlowApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: auth
-OAuth auth = (OAuth) defaultClient.getAuthentication("auth");
-auth.setAccessToken("YOUR ACCESS TOKEN");
 
 FlowApi apiInstance = new FlowApi();
 try {
@@ -293,40 +251,30 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[auth](../README.md#auth)
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 <a name="getBuckets"></a>
 # **getBuckets**
-> BucketsEntity getBuckets(id)
+> FlowRegistryBucketsEntity getBuckets(id)
 
 Gets the buckets from the specified registry for the current user
-
-
 
 ### Example
 ```java
 // Import classes:
-//import com.github.hermannpencole.nifi.swagger.ApiClient;
-//import com.github.hermannpencole.nifi.swagger.ApiException;
-//import com.github.hermannpencole.nifi.swagger.Configuration;
-//import com.github.hermannpencole.nifi.swagger.auth.*;
-//import com.github.hermannpencole.nifi.swagger.client.FlowApi;
+//import com.github.asamoal.nifi.swagger.ApiException;
+//import com.github.asamoal.nifi.swagger.client.FlowApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: auth
-OAuth auth = (OAuth) defaultClient.getAuthentication("auth");
-auth.setAccessToken("YOUR ACCESS TOKEN");
 
 FlowApi apiInstance = new FlowApi();
 String id = "id_example"; // String | The registry id.
 try {
-    BucketsEntity result = apiInstance.getBuckets(id);
+    FlowRegistryBucketsEntity result = apiInstance.getBuckets(id);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling FlowApi#getBuckets");
@@ -342,15 +290,15 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**BucketsEntity**](BucketsEntity.md)
+[**FlowRegistryBucketsEntity**](FlowRegistryBucketsEntity.md)
 
 ### Authorization
 
-[auth](../README.md#auth)
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 <a name="getBulletinBoard"></a>
@@ -359,22 +307,12 @@ Name | Type | Description  | Notes
 
 Gets current bulletins
 
-
-
 ### Example
 ```java
 // Import classes:
-//import com.github.hermannpencole.nifi.swagger.ApiClient;
-//import com.github.hermannpencole.nifi.swagger.ApiException;
-//import com.github.hermannpencole.nifi.swagger.Configuration;
-//import com.github.hermannpencole.nifi.swagger.auth.*;
-//import com.github.hermannpencole.nifi.swagger.client.FlowApi;
+//import com.github.asamoal.nifi.swagger.ApiException;
+//import com.github.asamoal.nifi.swagger.client.FlowApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: auth
-OAuth auth = (OAuth) defaultClient.getAuthentication("auth");
-auth.setAccessToken("YOUR ACCESS TOKEN");
 
 FlowApi apiInstance = new FlowApi();
 String after = "after_example"; // String | Includes bulletins with an id after this value.
@@ -409,11 +347,11 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[auth](../README.md#auth)
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 <a name="getBulletins"></a>
@@ -422,22 +360,12 @@ Name | Type | Description  | Notes
 
 Retrieves Controller level bulletins
 
-
-
 ### Example
 ```java
 // Import classes:
-//import com.github.hermannpencole.nifi.swagger.ApiClient;
-//import com.github.hermannpencole.nifi.swagger.ApiException;
-//import com.github.hermannpencole.nifi.swagger.Configuration;
-//import com.github.hermannpencole.nifi.swagger.auth.*;
-//import com.github.hermannpencole.nifi.swagger.client.FlowApi;
+//import com.github.asamoal.nifi.swagger.ApiException;
+//import com.github.asamoal.nifi.swagger.client.FlowApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: auth
-OAuth auth = (OAuth) defaultClient.getAuthentication("auth");
-auth.setAccessToken("YOUR ACCESS TOKEN");
 
 FlowApi apiInstance = new FlowApi();
 try {
@@ -458,11 +386,11 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[auth](../README.md#auth)
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 <a name="getClusterSummary"></a>
@@ -471,22 +399,12 @@ This endpoint does not need any parameter.
 
 The cluster summary for this NiFi
 
-
-
 ### Example
 ```java
 // Import classes:
-//import com.github.hermannpencole.nifi.swagger.ApiClient;
-//import com.github.hermannpencole.nifi.swagger.ApiException;
-//import com.github.hermannpencole.nifi.swagger.Configuration;
-//import com.github.hermannpencole.nifi.swagger.auth.*;
-//import com.github.hermannpencole.nifi.swagger.client.FlowApi;
+//import com.github.asamoal.nifi.swagger.ApiException;
+//import com.github.asamoal.nifi.swagger.client.FlowApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: auth
-OAuth auth = (OAuth) defaultClient.getAuthentication("auth");
-auth.setAccessToken("YOUR ACCESS TOKEN");
 
 FlowApi apiInstance = new FlowApi();
 try {
@@ -507,11 +425,11 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[auth](../README.md#auth)
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 <a name="getComponentHistory"></a>
@@ -520,22 +438,14 @@ This endpoint does not need any parameter.
 
 Gets configuration history for a component
 
-Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
+Note: This endpoint is subject to change as NiFi and it&#x27;s REST API evolve.
 
 ### Example
 ```java
 // Import classes:
-//import com.github.hermannpencole.nifi.swagger.ApiClient;
-//import com.github.hermannpencole.nifi.swagger.ApiException;
-//import com.github.hermannpencole.nifi.swagger.Configuration;
-//import com.github.hermannpencole.nifi.swagger.auth.*;
-//import com.github.hermannpencole.nifi.swagger.client.FlowApi;
+//import com.github.asamoal.nifi.swagger.ApiException;
+//import com.github.asamoal.nifi.swagger.client.FlowApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: auth
-OAuth auth = (OAuth) defaultClient.getAuthentication("auth");
-auth.setAccessToken("YOUR ACCESS TOKEN");
 
 FlowApi apiInstance = new FlowApi();
 String componentId = "componentId_example"; // String | The component id.
@@ -560,11 +470,58 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[auth](../README.md#auth)
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="getConnectionStatistics"></a>
+# **getConnectionStatistics**
+> ConnectionStatisticsEntity getConnectionStatistics(id, nodewise, clusterNodeId)
+
+Gets statistics for a connection
+
+### Example
+```java
+// Import classes:
+//import com.github.asamoal.nifi.swagger.ApiException;
+//import com.github.asamoal.nifi.swagger.client.FlowApi;
+
+
+FlowApi apiInstance = new FlowApi();
+String id = "id_example"; // String | The connection id.
+Boolean nodewise = false; // Boolean | Whether or not to include the breakdown per node. Optional, defaults to false
+String clusterNodeId = "clusterNodeId_example"; // String | The id of the node where to get the statistics.
+try {
+    ConnectionStatisticsEntity result = apiInstance.getConnectionStatistics(id, nodewise, clusterNodeId);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling FlowApi#getConnectionStatistics");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**| The connection id. |
+ **nodewise** | **Boolean**| Whether or not to include the breakdown per node. Optional, defaults to false | [optional] [default to false]
+ **clusterNodeId** | **String**| The id of the node where to get the statistics. | [optional]
+
+### Return type
+
+[**ConnectionStatisticsEntity**](ConnectionStatisticsEntity.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 <a name="getConnectionStatus"></a>
@@ -573,22 +530,12 @@ Name | Type | Description  | Notes
 
 Gets status for a connection
 
-
-
 ### Example
 ```java
 // Import classes:
-//import com.github.hermannpencole.nifi.swagger.ApiClient;
-//import com.github.hermannpencole.nifi.swagger.ApiException;
-//import com.github.hermannpencole.nifi.swagger.Configuration;
-//import com.github.hermannpencole.nifi.swagger.auth.*;
-//import com.github.hermannpencole.nifi.swagger.client.FlowApi;
+//import com.github.asamoal.nifi.swagger.ApiException;
+//import com.github.asamoal.nifi.swagger.client.FlowApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: auth
-OAuth auth = (OAuth) defaultClient.getAuthentication("auth");
-auth.setAccessToken("YOUR ACCESS TOKEN");
 
 FlowApi apiInstance = new FlowApi();
 String id = "id_example"; // String | The connection id.
@@ -617,11 +564,11 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[auth](../README.md#auth)
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 <a name="getConnectionStatusHistory"></a>
@@ -630,22 +577,12 @@ Name | Type | Description  | Notes
 
 Gets the status history for a connection
 
-
-
 ### Example
 ```java
 // Import classes:
-//import com.github.hermannpencole.nifi.swagger.ApiClient;
-//import com.github.hermannpencole.nifi.swagger.ApiException;
-//import com.github.hermannpencole.nifi.swagger.Configuration;
-//import com.github.hermannpencole.nifi.swagger.auth.*;
-//import com.github.hermannpencole.nifi.swagger.client.FlowApi;
+//import com.github.asamoal.nifi.swagger.ApiException;
+//import com.github.asamoal.nifi.swagger.client.FlowApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: auth
-OAuth auth = (OAuth) defaultClient.getAuthentication("auth");
-auth.setAccessToken("YOUR ACCESS TOKEN");
 
 FlowApi apiInstance = new FlowApi();
 String id = "id_example"; // String | The connection id.
@@ -670,11 +607,11 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[auth](../README.md#auth)
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 <a name="getControllerServiceTypes"></a>
@@ -683,22 +620,14 @@ Name | Type | Description  | Notes
 
 Retrieves the types of controller services that this NiFi supports
 
-Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
+Note: This endpoint is subject to change as NiFi and it&#x27;s REST API evolve.
 
 ### Example
 ```java
 // Import classes:
-//import com.github.hermannpencole.nifi.swagger.ApiClient;
-//import com.github.hermannpencole.nifi.swagger.ApiException;
-//import com.github.hermannpencole.nifi.swagger.Configuration;
-//import com.github.hermannpencole.nifi.swagger.auth.*;
-//import com.github.hermannpencole.nifi.swagger.client.FlowApi;
+//import com.github.asamoal.nifi.swagger.ApiException;
+//import com.github.asamoal.nifi.swagger.client.FlowApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: auth
-OAuth auth = (OAuth) defaultClient.getAuthentication("auth");
-auth.setAccessToken("YOUR ACCESS TOKEN");
 
 FlowApi apiInstance = new FlowApi();
 String serviceType = "serviceType_example"; // String | If specified, will only return controller services that are compatible with this type of service.
@@ -735,39 +664,32 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[auth](../README.md#auth)
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 <a name="getControllerServicesFromController"></a>
 # **getControllerServicesFromController**
-> ControllerServicesEntity getControllerServicesFromController()
+> ControllerServicesEntity getControllerServicesFromController(uiOnly)
 
-Gets all controller services
+Gets controller services for reporting tasks
 
-
+If the uiOnly query parameter is provided with a value of true, the returned entity may only contain fields that are necessary for rendering the NiFi User Interface. As such, the selected fields may change at any time, even during incremental releases, without warning. As a result, this parameter should not be provided by any client other than the UI.
 
 ### Example
 ```java
 // Import classes:
-//import com.github.hermannpencole.nifi.swagger.ApiClient;
-//import com.github.hermannpencole.nifi.swagger.ApiException;
-//import com.github.hermannpencole.nifi.swagger.Configuration;
-//import com.github.hermannpencole.nifi.swagger.auth.*;
-//import com.github.hermannpencole.nifi.swagger.client.FlowApi;
+//import com.github.asamoal.nifi.swagger.ApiException;
+//import com.github.asamoal.nifi.swagger.client.FlowApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: auth
-OAuth auth = (OAuth) defaultClient.getAuthentication("auth");
-auth.setAccessToken("YOUR ACCESS TOKEN");
 
 FlowApi apiInstance = new FlowApi();
+Boolean uiOnly = false; // Boolean | 
 try {
-    ControllerServicesEntity result = apiInstance.getControllerServicesFromController();
+    ControllerServicesEntity result = apiInstance.getControllerServicesFromController(uiOnly);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling FlowApi#getControllerServicesFromController");
@@ -776,7 +698,10 @@ try {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **uiOnly** | **Boolean**|  | [optional] [default to false]
 
 ### Return type
 
@@ -784,42 +709,35 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[auth](../README.md#auth)
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 <a name="getControllerServicesFromGroup"></a>
 # **getControllerServicesFromGroup**
-> ControllerServicesEntity getControllerServicesFromGroup(id, includeAncestorGroups, includeDescendantGroups)
+> ControllerServicesEntity getControllerServicesFromGroup(id, includeAncestorGroups, includeDescendantGroups, uiOnly)
 
 Gets all controller services
 
-
+If the uiOnly query parameter is provided with a value of true, the returned entity may only contain fields that are necessary for rendering the NiFi User Interface. As such, the selected fields may change at any time, even during incremental releases, without warning. As a result, this parameter should not be provided by any client other than the UI.
 
 ### Example
 ```java
 // Import classes:
-//import com.github.hermannpencole.nifi.swagger.ApiClient;
-//import com.github.hermannpencole.nifi.swagger.ApiException;
-//import com.github.hermannpencole.nifi.swagger.Configuration;
-//import com.github.hermannpencole.nifi.swagger.auth.*;
-//import com.github.hermannpencole.nifi.swagger.client.FlowApi;
+//import com.github.asamoal.nifi.swagger.ApiException;
+//import com.github.asamoal.nifi.swagger.client.FlowApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: auth
-OAuth auth = (OAuth) defaultClient.getAuthentication("auth");
-auth.setAccessToken("YOUR ACCESS TOKEN");
 
 FlowApi apiInstance = new FlowApi();
 String id = "id_example"; // String | The process group id.
 Boolean includeAncestorGroups = true; // Boolean | Whether or not to include parent/ancestory process groups
 Boolean includeDescendantGroups = false; // Boolean | Whether or not to include descendant process groups
+Boolean uiOnly = false; // Boolean | 
 try {
-    ControllerServicesEntity result = apiInstance.getControllerServicesFromGroup(id, includeAncestorGroups, includeDescendantGroups);
+    ControllerServicesEntity result = apiInstance.getControllerServicesFromGroup(id, includeAncestorGroups, includeDescendantGroups, uiOnly);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling FlowApi#getControllerServicesFromGroup");
@@ -834,6 +752,7 @@ Name | Type | Description  | Notes
  **id** | **String**| The process group id. |
  **includeAncestorGroups** | **Boolean**| Whether or not to include parent/ancestory process groups | [optional] [default to true]
  **includeDescendantGroups** | **Boolean**| Whether or not to include descendant process groups | [optional] [default to false]
+ **uiOnly** | **Boolean**|  | [optional] [default to false]
 
 ### Return type
 
@@ -841,11 +760,11 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[auth](../README.md#auth)
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 <a name="getControllerStatus"></a>
@@ -854,22 +773,12 @@ Name | Type | Description  | Notes
 
 Gets the current status of this NiFi
 
-
-
 ### Example
 ```java
 // Import classes:
-//import com.github.hermannpencole.nifi.swagger.ApiClient;
-//import com.github.hermannpencole.nifi.swagger.ApiException;
-//import com.github.hermannpencole.nifi.swagger.Configuration;
-//import com.github.hermannpencole.nifi.swagger.auth.*;
-//import com.github.hermannpencole.nifi.swagger.client.FlowApi;
+//import com.github.asamoal.nifi.swagger.ApiException;
+//import com.github.asamoal.nifi.swagger.client.FlowApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: auth
-OAuth auth = (OAuth) defaultClient.getAuthentication("auth");
-auth.setAccessToken("YOUR ACCESS TOKEN");
 
 FlowApi apiInstance = new FlowApi();
 try {
@@ -890,11 +799,11 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[auth](../README.md#auth)
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 <a name="getCurrentUser"></a>
@@ -903,22 +812,12 @@ This endpoint does not need any parameter.
 
 Retrieves the user identity of the user making the request
 
-
-
 ### Example
 ```java
 // Import classes:
-//import com.github.hermannpencole.nifi.swagger.ApiClient;
-//import com.github.hermannpencole.nifi.swagger.ApiException;
-//import com.github.hermannpencole.nifi.swagger.Configuration;
-//import com.github.hermannpencole.nifi.swagger.auth.*;
-//import com.github.hermannpencole.nifi.swagger.client.FlowApi;
+//import com.github.asamoal.nifi.swagger.ApiException;
+//import com.github.asamoal.nifi.swagger.client.FlowApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: auth
-OAuth auth = (OAuth) defaultClient.getAuthentication("auth");
-auth.setAccessToken("YOUR ACCESS TOKEN");
 
 FlowApi apiInstance = new FlowApi();
 try {
@@ -939,40 +838,80 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[auth](../README.md#auth)
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="getFlow"></a>
-# **getFlow**
-> ProcessGroupFlowEntity getFlow(id)
+<a name="getDetails"></a>
+# **getDetails**
+> VersionedFlowEntity getDetails(registryId, bucketId, flowId)
 
-Gets a process group
-
-
+Gets the details of a flow from the specified registry and bucket for the specified flow for the current user
 
 ### Example
 ```java
 // Import classes:
-//import com.github.hermannpencole.nifi.swagger.ApiClient;
-//import com.github.hermannpencole.nifi.swagger.ApiException;
-//import com.github.hermannpencole.nifi.swagger.Configuration;
-//import com.github.hermannpencole.nifi.swagger.auth.*;
-//import com.github.hermannpencole.nifi.swagger.client.FlowApi;
+//import com.github.asamoal.nifi.swagger.ApiException;
+//import com.github.asamoal.nifi.swagger.client.FlowApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
 
-// Configure OAuth2 access token for authorization: auth
-OAuth auth = (OAuth) defaultClient.getAuthentication("auth");
-auth.setAccessToken("YOUR ACCESS TOKEN");
+FlowApi apiInstance = new FlowApi();
+String registryId = "registryId_example"; // String | The registry client id.
+String bucketId = "bucketId_example"; // String | The bucket id.
+String flowId = "flowId_example"; // String | The flow id.
+try {
+    VersionedFlowEntity result = apiInstance.getDetails(registryId, bucketId, flowId);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling FlowApi#getDetails");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **registryId** | **String**| The registry client id. |
+ **bucketId** | **String**| The bucket id. |
+ **flowId** | **String**| The flow id. |
+
+### Return type
+
+[**VersionedFlowEntity**](VersionedFlowEntity.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="getFlow"></a>
+# **getFlow**
+> ProcessGroupFlowEntity getFlow(id, uiOnly)
+
+Gets a process group
+
+If the uiOnly query parameter is provided with a value of true, the returned entity may only contain fields that are necessary for rendering the NiFi User Interface. As such, the selected fields may change at any time, even during incremental releases, without warning. As a result, this parameter should not be provided by any client other than the UI.
+
+### Example
+```java
+// Import classes:
+//import com.github.asamoal.nifi.swagger.ApiException;
+//import com.github.asamoal.nifi.swagger.client.FlowApi;
+
 
 FlowApi apiInstance = new FlowApi();
 String id = "id_example"; // String | The process group id.
+Boolean uiOnly = false; // Boolean | 
 try {
-    ProcessGroupFlowEntity result = apiInstance.getFlow(id);
+    ProcessGroupFlowEntity result = apiInstance.getFlow(id, uiOnly);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling FlowApi#getFlow");
@@ -985,6 +924,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| The process group id. |
+ **uiOnly** | **Boolean**|  | [optional] [default to false]
 
 ### Return type
 
@@ -992,11 +932,11 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[auth](../README.md#auth)
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 <a name="getFlowConfig"></a>
@@ -1005,22 +945,12 @@ Name | Type | Description  | Notes
 
 Retrieves the configuration for this NiFi flow
 
-
-
 ### Example
 ```java
 // Import classes:
-//import com.github.hermannpencole.nifi.swagger.ApiClient;
-//import com.github.hermannpencole.nifi.swagger.ApiException;
-//import com.github.hermannpencole.nifi.swagger.Configuration;
-//import com.github.hermannpencole.nifi.swagger.auth.*;
-//import com.github.hermannpencole.nifi.swagger.client.FlowApi;
+//import com.github.asamoal.nifi.swagger.ApiException;
+//import com.github.asamoal.nifi.swagger.client.FlowApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: auth
-OAuth auth = (OAuth) defaultClient.getAuthentication("auth");
-auth.setAccessToken("YOUR ACCESS TOKEN");
 
 FlowApi apiInstance = new FlowApi();
 try {
@@ -1041,41 +971,82 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[auth](../README.md#auth)
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="getFlows"></a>
-# **getFlows**
-> BucketsEntity getFlows(registryId, bucketId)
+<a name="getFlowMetrics"></a>
+# **getFlowMetrics**
+> StreamingOutput getFlowMetrics(producer, includedRegistries, sampleName, sampleLabelValue, rootFieldName)
 
-Gets the flows from the specified registry and bucket for the current user
-
-
+Gets all metrics for the flow from a particular node
 
 ### Example
 ```java
 // Import classes:
-//import com.github.hermannpencole.nifi.swagger.ApiClient;
-//import com.github.hermannpencole.nifi.swagger.ApiException;
-//import com.github.hermannpencole.nifi.swagger.Configuration;
-//import com.github.hermannpencole.nifi.swagger.auth.*;
-//import com.github.hermannpencole.nifi.swagger.client.FlowApi;
+//import com.github.asamoal.nifi.swagger.ApiException;
+//import com.github.asamoal.nifi.swagger.client.FlowApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: auth
-OAuth auth = (OAuth) defaultClient.getAuthentication("auth");
-auth.setAccessToken("YOUR ACCESS TOKEN");
 
 FlowApi apiInstance = new FlowApi();
-String registryId = "registryId_example"; // String | The registry id.
+String producer = "producer_example"; // String | The producer for flow file metrics. Each producer may have its own output format.
+List<String> includedRegistries = Arrays.asList("includedRegistries_example"); // List<String> | Set of included metrics registries
+String sampleName = "sampleName_example"; // String | Regular Expression Pattern to be applied against the sample name field
+String sampleLabelValue = "sampleLabelValue_example"; // String | Regular Expression Pattern to be applied against the sample label value field
+String rootFieldName = "rootFieldName_example"; // String | Name of the first field of JSON object. Applicable for JSON producer only.
+try {
+    StreamingOutput result = apiInstance.getFlowMetrics(producer, includedRegistries, sampleName, sampleLabelValue, rootFieldName);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling FlowApi#getFlowMetrics");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **producer** | **String**| The producer for flow file metrics. Each producer may have its own output format. | [enum: prometheus]
+ **includedRegistries** | [**List&lt;String&gt;**](String.md)| Set of included metrics registries | [optional] [enum: NIFI, JVM, BULLETIN, CONNECTION]
+ **sampleName** | **String**| Regular Expression Pattern to be applied against the sample name field | [optional]
+ **sampleLabelValue** | **String**| Regular Expression Pattern to be applied against the sample label value field | [optional]
+ **rootFieldName** | **String**| Name of the first field of JSON object. Applicable for JSON producer only. | [optional]
+
+### Return type
+
+[**StreamingOutput**](StreamingOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: */*
+
+<a name="getFlows"></a>
+# **getFlows**
+> VersionedFlowsEntity getFlows(registryId, bucketId)
+
+Gets the flows from the specified registry and bucket for the current user
+
+### Example
+```java
+// Import classes:
+//import com.github.asamoal.nifi.swagger.ApiException;
+//import com.github.asamoal.nifi.swagger.client.FlowApi;
+
+
+FlowApi apiInstance = new FlowApi();
+String registryId = "registryId_example"; // String | The registry client id.
 String bucketId = "bucketId_example"; // String | The bucket id.
 try {
-    BucketsEntity result = apiInstance.getFlows(registryId, bucketId);
+    VersionedFlowsEntity result = apiInstance.getFlows(registryId, bucketId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling FlowApi#getFlows");
@@ -1087,20 +1058,20 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **registryId** | **String**| The registry id. |
+ **registryId** | **String**| The registry client id. |
  **bucketId** | **String**| The bucket id. |
 
 ### Return type
 
-[**BucketsEntity**](BucketsEntity.md)
+[**VersionedFlowsEntity**](VersionedFlowsEntity.md)
 
 ### Authorization
 
-[auth](../README.md#auth)
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 <a name="getInputPortStatus"></a>
@@ -1109,22 +1080,12 @@ Name | Type | Description  | Notes
 
 Gets status for an input port
 
-
-
 ### Example
 ```java
 // Import classes:
-//import com.github.hermannpencole.nifi.swagger.ApiClient;
-//import com.github.hermannpencole.nifi.swagger.ApiException;
-//import com.github.hermannpencole.nifi.swagger.Configuration;
-//import com.github.hermannpencole.nifi.swagger.auth.*;
-//import com.github.hermannpencole.nifi.swagger.client.FlowApi;
+//import com.github.asamoal.nifi.swagger.ApiException;
+//import com.github.asamoal.nifi.swagger.client.FlowApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: auth
-OAuth auth = (OAuth) defaultClient.getAuthentication("auth");
-auth.setAccessToken("YOUR ACCESS TOKEN");
 
 FlowApi apiInstance = new FlowApi();
 String id = "id_example"; // String | The input port id.
@@ -1153,11 +1114,11 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[auth](../README.md#auth)
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 <a name="getOutputPortStatus"></a>
@@ -1166,22 +1127,12 @@ Name | Type | Description  | Notes
 
 Gets status for an output port
 
-
-
 ### Example
 ```java
 // Import classes:
-//import com.github.hermannpencole.nifi.swagger.ApiClient;
-//import com.github.hermannpencole.nifi.swagger.ApiException;
-//import com.github.hermannpencole.nifi.swagger.Configuration;
-//import com.github.hermannpencole.nifi.swagger.auth.*;
-//import com.github.hermannpencole.nifi.swagger.client.FlowApi;
+//import com.github.asamoal.nifi.swagger.ApiException;
+//import com.github.asamoal.nifi.swagger.client.FlowApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: auth
-OAuth auth = (OAuth) defaultClient.getAuthentication("auth");
-auth.setAccessToken("YOUR ACCESS TOKEN");
 
 FlowApi apiInstance = new FlowApi();
 String id = "id_example"; // String | The output port id.
@@ -1210,11 +1161,138 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[auth](../README.md#auth)
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="getParameterContexts"></a>
+# **getParameterContexts**
+> ParameterContextsEntity getParameterContexts()
+
+Gets all Parameter Contexts
+
+### Example
+```java
+// Import classes:
+//import com.github.asamoal.nifi.swagger.ApiException;
+//import com.github.asamoal.nifi.swagger.client.FlowApi;
+
+
+FlowApi apiInstance = new FlowApi();
+try {
+    ParameterContextsEntity result = apiInstance.getParameterContexts();
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling FlowApi#getParameterContexts");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**ParameterContextsEntity**](ParameterContextsEntity.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="getParameterProviderTypes"></a>
+# **getParameterProviderTypes**
+> ParameterProviderTypesEntity getParameterProviderTypes(bundleGroupFilter, bundleArtifactFilter, type)
+
+Retrieves the types of parameter providers that this NiFi supports
+
+Note: This endpoint is subject to change as NiFi and it&#x27;s REST API evolve.
+
+### Example
+```java
+// Import classes:
+//import com.github.asamoal.nifi.swagger.ApiException;
+//import com.github.asamoal.nifi.swagger.client.FlowApi;
+
+
+FlowApi apiInstance = new FlowApi();
+String bundleGroupFilter = "bundleGroupFilter_example"; // String | If specified, will only return types that are a member of this bundle group.
+String bundleArtifactFilter = "bundleArtifactFilter_example"; // String | If specified, will only return types that are a member of this bundle artifact.
+String type = "type_example"; // String | If specified, will only return types whose fully qualified classname matches.
+try {
+    ParameterProviderTypesEntity result = apiInstance.getParameterProviderTypes(bundleGroupFilter, bundleArtifactFilter, type);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling FlowApi#getParameterProviderTypes");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **bundleGroupFilter** | **String**| If specified, will only return types that are a member of this bundle group. | [optional]
+ **bundleArtifactFilter** | **String**| If specified, will only return types that are a member of this bundle artifact. | [optional]
+ **type** | **String**| If specified, will only return types whose fully qualified classname matches. | [optional]
+
+### Return type
+
+[**ParameterProviderTypesEntity**](ParameterProviderTypesEntity.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="getParameterProviders"></a>
+# **getParameterProviders**
+> ParameterProvidersEntity getParameterProviders()
+
+Gets all parameter providers
+
+### Example
+```java
+// Import classes:
+//import com.github.asamoal.nifi.swagger.ApiException;
+//import com.github.asamoal.nifi.swagger.client.FlowApi;
+
+
+FlowApi apiInstance = new FlowApi();
+try {
+    ParameterProvidersEntity result = apiInstance.getParameterProviders();
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling FlowApi#getParameterProviders");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**ParameterProvidersEntity**](ParameterProvidersEntity.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 <a name="getPrioritizers"></a>
@@ -1223,22 +1301,14 @@ Name | Type | Description  | Notes
 
 Retrieves the types of prioritizers that this NiFi supports
 
-Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
+Note: This endpoint is subject to change as NiFi and it&#x27;s REST API evolve.
 
 ### Example
 ```java
 // Import classes:
-//import com.github.hermannpencole.nifi.swagger.ApiClient;
-//import com.github.hermannpencole.nifi.swagger.ApiException;
-//import com.github.hermannpencole.nifi.swagger.Configuration;
-//import com.github.hermannpencole.nifi.swagger.auth.*;
-//import com.github.hermannpencole.nifi.swagger.client.FlowApi;
+//import com.github.asamoal.nifi.swagger.ApiException;
+//import com.github.asamoal.nifi.swagger.client.FlowApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: auth
-OAuth auth = (OAuth) defaultClient.getAuthentication("auth");
-auth.setAccessToken("YOUR ACCESS TOKEN");
 
 FlowApi apiInstance = new FlowApi();
 try {
@@ -1259,11 +1329,11 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[auth](../README.md#auth)
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 <a name="getProcessGroupStatus"></a>
@@ -1277,17 +1347,9 @@ The status for a process group includes status for all descendent components. Wh
 ### Example
 ```java
 // Import classes:
-//import com.github.hermannpencole.nifi.swagger.ApiClient;
-//import com.github.hermannpencole.nifi.swagger.ApiException;
-//import com.github.hermannpencole.nifi.swagger.Configuration;
-//import com.github.hermannpencole.nifi.swagger.auth.*;
-//import com.github.hermannpencole.nifi.swagger.client.FlowApi;
+//import com.github.asamoal.nifi.swagger.ApiException;
+//import com.github.asamoal.nifi.swagger.client.FlowApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: auth
-OAuth auth = (OAuth) defaultClient.getAuthentication("auth");
-auth.setAccessToken("YOUR ACCESS TOKEN");
 
 FlowApi apiInstance = new FlowApi();
 String id = "id_example"; // String | The process group id.
@@ -1318,11 +1380,11 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[auth](../README.md#auth)
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 <a name="getProcessGroupStatusHistory"></a>
@@ -1331,22 +1393,12 @@ Name | Type | Description  | Notes
 
 Gets status history for a remote process group
 
-
-
 ### Example
 ```java
 // Import classes:
-//import com.github.hermannpencole.nifi.swagger.ApiClient;
-//import com.github.hermannpencole.nifi.swagger.ApiException;
-//import com.github.hermannpencole.nifi.swagger.Configuration;
-//import com.github.hermannpencole.nifi.swagger.auth.*;
-//import com.github.hermannpencole.nifi.swagger.client.FlowApi;
+//import com.github.asamoal.nifi.swagger.ApiException;
+//import com.github.asamoal.nifi.swagger.client.FlowApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: auth
-OAuth auth = (OAuth) defaultClient.getAuthentication("auth");
-auth.setAccessToken("YOUR ACCESS TOKEN");
 
 FlowApi apiInstance = new FlowApi();
 String id = "id_example"; // String | The process group id.
@@ -1371,11 +1423,11 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[auth](../README.md#auth)
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 <a name="getProcessorStatus"></a>
@@ -1384,22 +1436,12 @@ Name | Type | Description  | Notes
 
 Gets status for a processor
 
-
-
 ### Example
 ```java
 // Import classes:
-//import com.github.hermannpencole.nifi.swagger.ApiClient;
-//import com.github.hermannpencole.nifi.swagger.ApiException;
-//import com.github.hermannpencole.nifi.swagger.Configuration;
-//import com.github.hermannpencole.nifi.swagger.auth.*;
-//import com.github.hermannpencole.nifi.swagger.client.FlowApi;
+//import com.github.asamoal.nifi.swagger.ApiException;
+//import com.github.asamoal.nifi.swagger.client.FlowApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: auth
-OAuth auth = (OAuth) defaultClient.getAuthentication("auth");
-auth.setAccessToken("YOUR ACCESS TOKEN");
 
 FlowApi apiInstance = new FlowApi();
 String id = "id_example"; // String | The processor id.
@@ -1428,11 +1470,11 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[auth](../README.md#auth)
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 <a name="getProcessorStatusHistory"></a>
@@ -1441,22 +1483,12 @@ Name | Type | Description  | Notes
 
 Gets status history for a processor
 
-
-
 ### Example
 ```java
 // Import classes:
-//import com.github.hermannpencole.nifi.swagger.ApiClient;
-//import com.github.hermannpencole.nifi.swagger.ApiException;
-//import com.github.hermannpencole.nifi.swagger.Configuration;
-//import com.github.hermannpencole.nifi.swagger.auth.*;
-//import com.github.hermannpencole.nifi.swagger.client.FlowApi;
+//import com.github.asamoal.nifi.swagger.ApiException;
+//import com.github.asamoal.nifi.swagger.client.FlowApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: auth
-OAuth auth = (OAuth) defaultClient.getAuthentication("auth");
-auth.setAccessToken("YOUR ACCESS TOKEN");
 
 FlowApi apiInstance = new FlowApi();
 String id = "id_example"; // String | The processor id.
@@ -1481,11 +1513,11 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[auth](../README.md#auth)
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 <a name="getProcessorTypes"></a>
@@ -1494,22 +1526,14 @@ Name | Type | Description  | Notes
 
 Retrieves the types of processors that this NiFi supports
 
-Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
+Note: This endpoint is subject to change as NiFi and it&#x27;s REST API evolve.
 
 ### Example
 ```java
 // Import classes:
-//import com.github.hermannpencole.nifi.swagger.ApiClient;
-//import com.github.hermannpencole.nifi.swagger.ApiException;
-//import com.github.hermannpencole.nifi.swagger.Configuration;
-//import com.github.hermannpencole.nifi.swagger.auth.*;
-//import com.github.hermannpencole.nifi.swagger.client.FlowApi;
+//import com.github.asamoal.nifi.swagger.ApiException;
+//import com.github.asamoal.nifi.swagger.client.FlowApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: auth
-OAuth auth = (OAuth) defaultClient.getAuthentication("auth");
-auth.setAccessToken("YOUR ACCESS TOKEN");
 
 FlowApi apiInstance = new FlowApi();
 String bundleGroupFilter = "bundleGroupFilter_example"; // String | If specified, will only return types that are a member of this bundle group.
@@ -1538,42 +1562,32 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[auth](../README.md#auth)
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="getRegistries"></a>
-# **getRegistries**
-> RegistryClientsEntity getRegistries()
+<a name="getRegistryClients"></a>
+# **getRegistryClients**
+> FlowRegistryClientsEntity getRegistryClients()
 
-Gets the listing of available registries
-
-
+Gets the listing of available flow registry clients
 
 ### Example
 ```java
 // Import classes:
-//import com.github.hermannpencole.nifi.swagger.ApiClient;
-//import com.github.hermannpencole.nifi.swagger.ApiException;
-//import com.github.hermannpencole.nifi.swagger.Configuration;
-//import com.github.hermannpencole.nifi.swagger.auth.*;
-//import com.github.hermannpencole.nifi.swagger.client.FlowApi;
+//import com.github.asamoal.nifi.swagger.ApiException;
+//import com.github.asamoal.nifi.swagger.client.FlowApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: auth
-OAuth auth = (OAuth) defaultClient.getAuthentication("auth");
-auth.setAccessToken("YOUR ACCESS TOKEN");
 
 FlowApi apiInstance = new FlowApi();
 try {
-    RegistryClientsEntity result = apiInstance.getRegistries();
+    FlowRegistryClientsEntity result = apiInstance.getRegistryClients();
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling FlowApi#getRegistries");
+    System.err.println("Exception when calling FlowApi#getRegistryClients");
     e.printStackTrace();
 }
 ```
@@ -1583,15 +1597,15 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**RegistryClientsEntity**](RegistryClientsEntity.md)
+[**FlowRegistryClientsEntity**](FlowRegistryClientsEntity.md)
 
 ### Authorization
 
-[auth](../README.md#auth)
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 <a name="getRemoteProcessGroupStatus"></a>
@@ -1600,22 +1614,12 @@ This endpoint does not need any parameter.
 
 Gets status for a remote process group
 
-
-
 ### Example
 ```java
 // Import classes:
-//import com.github.hermannpencole.nifi.swagger.ApiClient;
-//import com.github.hermannpencole.nifi.swagger.ApiException;
-//import com.github.hermannpencole.nifi.swagger.Configuration;
-//import com.github.hermannpencole.nifi.swagger.auth.*;
-//import com.github.hermannpencole.nifi.swagger.client.FlowApi;
+//import com.github.asamoal.nifi.swagger.ApiException;
+//import com.github.asamoal.nifi.swagger.client.FlowApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: auth
-OAuth auth = (OAuth) defaultClient.getAuthentication("auth");
-auth.setAccessToken("YOUR ACCESS TOKEN");
 
 FlowApi apiInstance = new FlowApi();
 String id = "id_example"; // String | The remote process group id.
@@ -1644,11 +1648,11 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[auth](../README.md#auth)
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 <a name="getRemoteProcessGroupStatusHistory"></a>
@@ -1657,22 +1661,12 @@ Name | Type | Description  | Notes
 
 Gets the status history
 
-
-
 ### Example
 ```java
 // Import classes:
-//import com.github.hermannpencole.nifi.swagger.ApiClient;
-//import com.github.hermannpencole.nifi.swagger.ApiException;
-//import com.github.hermannpencole.nifi.swagger.Configuration;
-//import com.github.hermannpencole.nifi.swagger.auth.*;
-//import com.github.hermannpencole.nifi.swagger.client.FlowApi;
+//import com.github.asamoal.nifi.swagger.ApiException;
+//import com.github.asamoal.nifi.swagger.client.FlowApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: auth
-OAuth auth = (OAuth) defaultClient.getAuthentication("auth");
-auth.setAccessToken("YOUR ACCESS TOKEN");
 
 FlowApi apiInstance = new FlowApi();
 String id = "id_example"; // String | The remote process group id.
@@ -1697,11 +1691,11 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[auth](../README.md#auth)
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 <a name="getReportingTaskTypes"></a>
@@ -1710,22 +1704,14 @@ Name | Type | Description  | Notes
 
 Retrieves the types of reporting tasks that this NiFi supports
 
-Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
+Note: This endpoint is subject to change as NiFi and it&#x27;s REST API evolve.
 
 ### Example
 ```java
 // Import classes:
-//import com.github.hermannpencole.nifi.swagger.ApiClient;
-//import com.github.hermannpencole.nifi.swagger.ApiException;
-//import com.github.hermannpencole.nifi.swagger.Configuration;
-//import com.github.hermannpencole.nifi.swagger.auth.*;
-//import com.github.hermannpencole.nifi.swagger.client.FlowApi;
+//import com.github.asamoal.nifi.swagger.ApiException;
+//import com.github.asamoal.nifi.swagger.client.FlowApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: auth
-OAuth auth = (OAuth) defaultClient.getAuthentication("auth");
-auth.setAccessToken("YOUR ACCESS TOKEN");
 
 FlowApi apiInstance = new FlowApi();
 String bundleGroupFilter = "bundleGroupFilter_example"; // String | If specified, will only return types that are a member of this bundle group.
@@ -1754,11 +1740,11 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[auth](../README.md#auth)
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 <a name="getReportingTasks"></a>
@@ -1767,22 +1753,12 @@ Name | Type | Description  | Notes
 
 Gets all reporting tasks
 
-
-
 ### Example
 ```java
 // Import classes:
-//import com.github.hermannpencole.nifi.swagger.ApiClient;
-//import com.github.hermannpencole.nifi.swagger.ApiException;
-//import com.github.hermannpencole.nifi.swagger.Configuration;
-//import com.github.hermannpencole.nifi.swagger.auth.*;
-//import com.github.hermannpencole.nifi.swagger.client.FlowApi;
+//import com.github.asamoal.nifi.swagger.ApiException;
+//import com.github.asamoal.nifi.swagger.client.FlowApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: auth
-OAuth auth = (OAuth) defaultClient.getAuthentication("auth");
-auth.setAccessToken("YOUR ACCESS TOKEN");
 
 FlowApi apiInstance = new FlowApi();
 try {
@@ -1803,11 +1779,52 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[auth](../README.md#auth)
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="getRuntimeManifest"></a>
+# **getRuntimeManifest**
+> RuntimeManifestEntity getRuntimeManifest()
+
+Retrieves the runtime manifest for this NiFi instance.
+
+Note: This endpoint is subject to change as NiFi and it&#x27;s REST API evolve.
+
+### Example
+```java
+// Import classes:
+//import com.github.asamoal.nifi.swagger.ApiException;
+//import com.github.asamoal.nifi.swagger.client.FlowApi;
+
+
+FlowApi apiInstance = new FlowApi();
+try {
+    RuntimeManifestEntity result = apiInstance.getRuntimeManifest();
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling FlowApi#getRuntimeManifest");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**RuntimeManifestEntity**](RuntimeManifestEntity.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 <a name="getTemplates"></a>
@@ -1816,22 +1833,12 @@ This endpoint does not need any parameter.
 
 Gets all templates
 
-
-
 ### Example
 ```java
 // Import classes:
-//import com.github.hermannpencole.nifi.swagger.ApiClient;
-//import com.github.hermannpencole.nifi.swagger.ApiException;
-//import com.github.hermannpencole.nifi.swagger.Configuration;
-//import com.github.hermannpencole.nifi.swagger.auth.*;
-//import com.github.hermannpencole.nifi.swagger.client.FlowApi;
+//import com.github.asamoal.nifi.swagger.ApiException;
+//import com.github.asamoal.nifi.swagger.client.FlowApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: auth
-OAuth auth = (OAuth) defaultClient.getAuthentication("auth");
-auth.setAccessToken("YOUR ACCESS TOKEN");
 
 FlowApi apiInstance = new FlowApi();
 try {
@@ -1852,42 +1859,32 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[auth](../README.md#auth)
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 <a name="getVersions"></a>
 # **getVersions**
-> BucketsEntity getVersions(registryId, bucketId, flowId)
+> VersionedFlowSnapshotMetadataSetEntity getVersions(registryId, bucketId, flowId)
 
 Gets the flow versions from the specified registry and bucket for the specified flow for the current user
-
-
 
 ### Example
 ```java
 // Import classes:
-//import com.github.hermannpencole.nifi.swagger.ApiClient;
-//import com.github.hermannpencole.nifi.swagger.ApiException;
-//import com.github.hermannpencole.nifi.swagger.Configuration;
-//import com.github.hermannpencole.nifi.swagger.auth.*;
-//import com.github.hermannpencole.nifi.swagger.client.FlowApi;
+//import com.github.asamoal.nifi.swagger.ApiException;
+//import com.github.asamoal.nifi.swagger.client.FlowApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: auth
-OAuth auth = (OAuth) defaultClient.getAuthentication("auth");
-auth.setAccessToken("YOUR ACCESS TOKEN");
 
 FlowApi apiInstance = new FlowApi();
-String registryId = "registryId_example"; // String | The registry id.
+String registryId = "registryId_example"; // String | The registry client id.
 String bucketId = "bucketId_example"; // String | The bucket id.
 String flowId = "flowId_example"; // String | The flow id.
 try {
-    BucketsEntity result = apiInstance.getVersions(registryId, bucketId, flowId);
+    VersionedFlowSnapshotMetadataSetEntity result = apiInstance.getVersions(registryId, bucketId, flowId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling FlowApi#getVersions");
@@ -1899,21 +1896,21 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **registryId** | **String**| The registry id. |
+ **registryId** | **String**| The registry client id. |
  **bucketId** | **String**| The bucket id. |
  **flowId** | **String**| The flow id. |
 
 ### Return type
 
-[**BucketsEntity**](BucketsEntity.md)
+[**VersionedFlowSnapshotMetadataSetEntity**](VersionedFlowSnapshotMetadataSetEntity.md)
 
 ### Authorization
 
-[auth](../README.md#auth)
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 <a name="queryHistory"></a>
@@ -1922,22 +1919,14 @@ Name | Type | Description  | Notes
 
 Gets configuration history
 
-Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
+Note: This endpoint is subject to change as NiFi and it&#x27;s REST API evolve.
 
 ### Example
 ```java
 // Import classes:
-//import com.github.hermannpencole.nifi.swagger.ApiClient;
-//import com.github.hermannpencole.nifi.swagger.ApiException;
-//import com.github.hermannpencole.nifi.swagger.Configuration;
-//import com.github.hermannpencole.nifi.swagger.auth.*;
-//import com.github.hermannpencole.nifi.swagger.client.FlowApi;
+//import com.github.asamoal.nifi.swagger.ApiException;
+//import com.github.asamoal.nifi.swagger.client.FlowApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: auth
-OAuth auth = (OAuth) defaultClient.getAuthentication("auth");
-auth.setAccessToken("YOUR ACCESS TOKEN");
 
 FlowApi apiInstance = new FlowApi();
 String offset = "offset_example"; // String | The offset into the result set.
@@ -1976,41 +1965,31 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[auth](../README.md#auth)
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 <a name="scheduleComponents"></a>
 # **scheduleComponents**
-> ScheduleComponentsEntity scheduleComponents(id, body)
+> ScheduleComponentsEntity scheduleComponents(body, id)
 
 Schedule or unschedule components in the specified Process Group.
-
-
 
 ### Example
 ```java
 // Import classes:
-//import com.github.hermannpencole.nifi.swagger.ApiClient;
-//import com.github.hermannpencole.nifi.swagger.ApiException;
-//import com.github.hermannpencole.nifi.swagger.Configuration;
-//import com.github.hermannpencole.nifi.swagger.auth.*;
-//import com.github.hermannpencole.nifi.swagger.client.FlowApi;
+//import com.github.asamoal.nifi.swagger.ApiException;
+//import com.github.asamoal.nifi.swagger.client.FlowApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: auth
-OAuth auth = (OAuth) defaultClient.getAuthentication("auth");
-auth.setAccessToken("YOUR ACCESS TOKEN");
 
 FlowApi apiInstance = new FlowApi();
-String id = "id_example"; // String | The process group id.
 ScheduleComponentsEntity body = new ScheduleComponentsEntity(); // ScheduleComponentsEntity | The request to schedule or unschedule. If the comopnents in the request are not specified, all authorized components will be considered.
+String id = "id_example"; // String | The process group id.
 try {
-    ScheduleComponentsEntity result = apiInstance.scheduleComponents(id, body);
+    ScheduleComponentsEntity result = apiInstance.scheduleComponents(body, id);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling FlowApi#scheduleComponents");
@@ -2022,8 +2001,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| The process group id. |
  **body** | [**ScheduleComponentsEntity**](ScheduleComponentsEntity.md)| The request to schedule or unschedule. If the comopnents in the request are not specified, all authorized components will be considered. |
+ **id** | **String**| The process group id. |
 
 ### Return type
 
@@ -2031,7 +2010,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[auth](../README.md#auth)
+No authorization required
 
 ### HTTP request headers
 
@@ -2044,22 +2023,14 @@ Name | Type | Description  | Notes
 
 Searches the cluster for a node with the specified address
 
-Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
+Note: This endpoint is subject to change as NiFi and it&#x27;s REST API evolve.
 
 ### Example
 ```java
 // Import classes:
-//import com.github.hermannpencole.nifi.swagger.ApiClient;
-//import com.github.hermannpencole.nifi.swagger.ApiException;
-//import com.github.hermannpencole.nifi.swagger.Configuration;
-//import com.github.hermannpencole.nifi.swagger.auth.*;
-//import com.github.hermannpencole.nifi.swagger.client.FlowApi;
+//import com.github.asamoal.nifi.swagger.ApiException;
+//import com.github.asamoal.nifi.swagger.client.FlowApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: auth
-OAuth auth = (OAuth) defaultClient.getAuthentication("auth");
-auth.setAccessToken("YOUR ACCESS TOKEN");
 
 FlowApi apiInstance = new FlowApi();
 String q = "q_example"; // String | Node address to search for.
@@ -2084,16 +2055,16 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[auth](../README.md#auth)
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 <a name="searchFlow"></a>
 # **searchFlow**
-> SearchResultsEntity searchFlow(q)
+> SearchResultsEntity searchFlow(q, a)
 
 Performs a search against this NiFi using the specified search term
 
@@ -2102,22 +2073,15 @@ Only search results from authorized components will be returned.
 ### Example
 ```java
 // Import classes:
-//import com.github.hermannpencole.nifi.swagger.ApiClient;
-//import com.github.hermannpencole.nifi.swagger.ApiException;
-//import com.github.hermannpencole.nifi.swagger.Configuration;
-//import com.github.hermannpencole.nifi.swagger.auth.*;
-//import com.github.hermannpencole.nifi.swagger.client.FlowApi;
+//import com.github.asamoal.nifi.swagger.ApiException;
+//import com.github.asamoal.nifi.swagger.client.FlowApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: auth
-OAuth auth = (OAuth) defaultClient.getAuthentication("auth");
-auth.setAccessToken("YOUR ACCESS TOKEN");
 
 FlowApi apiInstance = new FlowApi();
 String q = "q_example"; // String | 
+String a = "a_example"; // String | 
 try {
-    SearchResultsEntity result = apiInstance.searchFlow(q);
+    SearchResultsEntity result = apiInstance.searchFlow(q, a);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling FlowApi#searchFlow");
@@ -2130,6 +2094,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **q** | **String**|  | [optional]
+ **a** | **String**|  | [optional]
 
 ### Return type
 
@@ -2137,10 +2102,10 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[auth](../README.md#auth)
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 

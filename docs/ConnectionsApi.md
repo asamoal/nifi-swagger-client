@@ -1,6 +1,6 @@
 # ConnectionsApi
 
-All URIs are relative to *http://localhost/nifi-api*
+All URIs are relative to */nifi-api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -8,36 +8,26 @@ Method | HTTP request | Description
 [**getConnection**](ConnectionsApi.md#getConnection) | **GET** /connections/{id} | Gets a connection
 [**updateConnection**](ConnectionsApi.md#updateConnection) | **PUT** /connections/{id} | Updates a connection
 
-
 <a name="deleteConnection"></a>
 # **deleteConnection**
-> ConnectionEntity deleteConnection(id, version, clientId)
+> ConnectionEntity deleteConnection(id, version, clientId, disconnectedNodeAcknowledged)
 
 Deletes a connection
-
-
 
 ### Example
 ```java
 // Import classes:
-//import com.github.hermannpencole.nifi.swagger.ApiClient;
-//import com.github.hermannpencole.nifi.swagger.ApiException;
-//import com.github.hermannpencole.nifi.swagger.Configuration;
-//import com.github.hermannpencole.nifi.swagger.auth.*;
-//import com.github.hermannpencole.nifi.swagger.client.ConnectionsApi;
+//import com.github.asamoal.nifi.swagger.ApiException;
+//import com.github.asamoal.nifi.swagger.client.ConnectionsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: auth
-OAuth auth = (OAuth) defaultClient.getAuthentication("auth");
-auth.setAccessToken("YOUR ACCESS TOKEN");
 
 ConnectionsApi apiInstance = new ConnectionsApi();
 String id = "id_example"; // String | The connection id.
 String version = "version_example"; // String | The revision is used to verify the client is working with the latest version of the flow.
 String clientId = "clientId_example"; // String | If the client id is not specified, new one will be generated. This value (whether specified or generated) is included in the response.
+Boolean disconnectedNodeAcknowledged = false; // Boolean | Acknowledges that this node is disconnected to allow for mutable requests to proceed.
 try {
-    ConnectionEntity result = apiInstance.deleteConnection(id, version, clientId);
+    ConnectionEntity result = apiInstance.deleteConnection(id, version, clientId, disconnectedNodeAcknowledged);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ConnectionsApi#deleteConnection");
@@ -52,6 +42,7 @@ Name | Type | Description  | Notes
  **id** | **String**| The connection id. |
  **version** | **String**| The revision is used to verify the client is working with the latest version of the flow. | [optional]
  **clientId** | **String**| If the client id is not specified, new one will be generated. This value (whether specified or generated) is included in the response. | [optional]
+ **disconnectedNodeAcknowledged** | **Boolean**| Acknowledges that this node is disconnected to allow for mutable requests to proceed. | [optional] [default to false]
 
 ### Return type
 
@@ -59,11 +50,11 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[auth](../README.md#auth)
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 <a name="getConnection"></a>
@@ -72,16 +63,14 @@ Name | Type | Description  | Notes
 
 Gets a connection
 
-
-
 ### Example
 ```java
 // Import classes:
-//import com.github.hermannpencole.nifi.swagger.ApiClient;
-//import com.github.hermannpencole.nifi.swagger.ApiException;
-//import com.github.hermannpencole.nifi.swagger.Configuration;
-//import com.github.hermannpencole.nifi.swagger.auth.*;
-//import com.github.hermannpencole.nifi.swagger.client.ConnectionsApi;
+//import com.github.asamoal.nifi.swagger.ApiClient;
+//import com.github.asamoal.nifi.swagger.ApiException;
+//import com.github.asamoal.nifi.swagger.Configuration;
+//import com.github.asamoal.nifi.swagger.auth.*;
+//import com.github.asamoal.nifi.swagger.client.ConnectionsApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -116,37 +105,27 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 <a name="updateConnection"></a>
 # **updateConnection**
-> ConnectionEntity updateConnection(id, body)
+> ConnectionEntity updateConnection(body, id)
 
 Updates a connection
-
-
 
 ### Example
 ```java
 // Import classes:
-//import com.github.hermannpencole.nifi.swagger.ApiClient;
-//import com.github.hermannpencole.nifi.swagger.ApiException;
-//import com.github.hermannpencole.nifi.swagger.Configuration;
-//import com.github.hermannpencole.nifi.swagger.auth.*;
-//import com.github.hermannpencole.nifi.swagger.client.ConnectionsApi;
+//import com.github.asamoal.nifi.swagger.ApiException;
+//import com.github.asamoal.nifi.swagger.client.ConnectionsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: auth
-OAuth auth = (OAuth) defaultClient.getAuthentication("auth");
-auth.setAccessToken("YOUR ACCESS TOKEN");
 
 ConnectionsApi apiInstance = new ConnectionsApi();
-String id = "id_example"; // String | The connection id.
 ConnectionEntity body = new ConnectionEntity(); // ConnectionEntity | The connection configuration details.
+String id = "id_example"; // String | The connection id.
 try {
-    ConnectionEntity result = apiInstance.updateConnection(id, body);
+    ConnectionEntity result = apiInstance.updateConnection(body, id);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ConnectionsApi#updateConnection");
@@ -158,8 +137,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| The connection id. |
  **body** | [**ConnectionEntity**](ConnectionEntity.md)| The connection configuration details. |
+ **id** | **String**| The connection id. |
 
 ### Return type
 
@@ -167,7 +146,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[auth](../README.md#auth)
+No authorization required
 
 ### HTTP request headers
 

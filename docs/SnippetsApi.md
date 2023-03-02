@@ -1,13 +1,12 @@
 # SnippetsApi
 
-All URIs are relative to *http://localhost/nifi-api*
+All URIs are relative to */nifi-api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**createSnippet**](SnippetsApi.md#createSnippet) | **POST** /snippets | Creates a snippet. The snippet will be automatically discarded if not used in a subsequent request after 1 minute.
 [**deleteSnippet**](SnippetsApi.md#deleteSnippet) | **DELETE** /snippets/{id} | Deletes the components in a snippet and discards the snippet
-[**updateSnippet**](SnippetsApi.md#updateSnippet) | **PUT** /snippets/{id} | Move&#39;s the components in this Snippet into a new Process Group and discards the snippet
-
+[**updateSnippet**](SnippetsApi.md#updateSnippet) | **PUT** /snippets/{id} | Move&#x27;s the components in this Snippet into a new Process Group and discards the snippet
 
 <a name="createSnippet"></a>
 # **createSnippet**
@@ -15,22 +14,12 @@ Method | HTTP request | Description
 
 Creates a snippet. The snippet will be automatically discarded if not used in a subsequent request after 1 minute.
 
-
-
 ### Example
 ```java
 // Import classes:
-//import com.github.hermannpencole.nifi.swagger.ApiClient;
-//import com.github.hermannpencole.nifi.swagger.ApiException;
-//import com.github.hermannpencole.nifi.swagger.Configuration;
-//import com.github.hermannpencole.nifi.swagger.auth.*;
-//import com.github.hermannpencole.nifi.swagger.client.SnippetsApi;
+//import com.github.asamoal.nifi.swagger.ApiException;
+//import com.github.asamoal.nifi.swagger.client.SnippetsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: auth
-OAuth auth = (OAuth) defaultClient.getAuthentication("auth");
-auth.setAccessToken("YOUR ACCESS TOKEN");
 
 SnippetsApi apiInstance = new SnippetsApi();
 SnippetEntity body = new SnippetEntity(); // SnippetEntity | The snippet configuration details.
@@ -55,7 +44,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[auth](../README.md#auth)
+No authorization required
 
 ### HTTP request headers
 
@@ -64,31 +53,22 @@ Name | Type | Description  | Notes
 
 <a name="deleteSnippet"></a>
 # **deleteSnippet**
-> SnippetEntity deleteSnippet(id)
+> SnippetEntity deleteSnippet(id, disconnectedNodeAcknowledged)
 
 Deletes the components in a snippet and discards the snippet
-
-
 
 ### Example
 ```java
 // Import classes:
-//import com.github.hermannpencole.nifi.swagger.ApiClient;
-//import com.github.hermannpencole.nifi.swagger.ApiException;
-//import com.github.hermannpencole.nifi.swagger.Configuration;
-//import com.github.hermannpencole.nifi.swagger.auth.*;
-//import com.github.hermannpencole.nifi.swagger.client.SnippetsApi;
+//import com.github.asamoal.nifi.swagger.ApiException;
+//import com.github.asamoal.nifi.swagger.client.SnippetsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: auth
-OAuth auth = (OAuth) defaultClient.getAuthentication("auth");
-auth.setAccessToken("YOUR ACCESS TOKEN");
 
 SnippetsApi apiInstance = new SnippetsApi();
 String id = "id_example"; // String | The snippet id.
+Boolean disconnectedNodeAcknowledged = false; // Boolean | Acknowledges that this node is disconnected to allow for mutable requests to proceed.
 try {
-    SnippetEntity result = apiInstance.deleteSnippet(id);
+    SnippetEntity result = apiInstance.deleteSnippet(id, disconnectedNodeAcknowledged);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling SnippetsApi#deleteSnippet");
@@ -101,6 +81,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| The snippet id. |
+ **disconnectedNodeAcknowledged** | **Boolean**| Acknowledges that this node is disconnected to allow for mutable requests to proceed. | [optional] [default to false]
 
 ### Return type
 
@@ -108,41 +89,31 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[auth](../README.md#auth)
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 <a name="updateSnippet"></a>
 # **updateSnippet**
-> SnippetEntity updateSnippet(id, body)
+> SnippetEntity updateSnippet(body, id)
 
-Move&#39;s the components in this Snippet into a new Process Group and discards the snippet
-
-
+Move&#x27;s the components in this Snippet into a new Process Group and discards the snippet
 
 ### Example
 ```java
 // Import classes:
-//import com.github.hermannpencole.nifi.swagger.ApiClient;
-//import com.github.hermannpencole.nifi.swagger.ApiException;
-//import com.github.hermannpencole.nifi.swagger.Configuration;
-//import com.github.hermannpencole.nifi.swagger.auth.*;
-//import com.github.hermannpencole.nifi.swagger.client.SnippetsApi;
+//import com.github.asamoal.nifi.swagger.ApiException;
+//import com.github.asamoal.nifi.swagger.client.SnippetsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: auth
-OAuth auth = (OAuth) defaultClient.getAuthentication("auth");
-auth.setAccessToken("YOUR ACCESS TOKEN");
 
 SnippetsApi apiInstance = new SnippetsApi();
-String id = "id_example"; // String | The snippet id.
 SnippetEntity body = new SnippetEntity(); // SnippetEntity | The snippet configuration details.
+String id = "id_example"; // String | The snippet id.
 try {
-    SnippetEntity result = apiInstance.updateSnippet(id, body);
+    SnippetEntity result = apiInstance.updateSnippet(body, id);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling SnippetsApi#updateSnippet");
@@ -154,8 +125,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| The snippet id. |
  **body** | [**SnippetEntity**](SnippetEntity.md)| The snippet configuration details. |
+ **id** | **String**| The snippet id. |
 
 ### Return type
 
@@ -163,7 +134,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[auth](../README.md#auth)
+No authorization required
 
 ### HTTP request headers
 

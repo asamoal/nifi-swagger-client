@@ -1,13 +1,13 @@
 # InputPortsApi
 
-All URIs are relative to *http://localhost/nifi-api*
+All URIs are relative to */nifi-api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**getInputPort**](InputPortsApi.md#getInputPort) | **GET** /input-ports/{id} | Gets an input port
 [**removeInputPort**](InputPortsApi.md#removeInputPort) | **DELETE** /input-ports/{id} | Deletes an input port
 [**updateInputPort**](InputPortsApi.md#updateInputPort) | **PUT** /input-ports/{id} | Updates an input port
-
+[**updateRunStatus**](InputPortsApi.md#updateRunStatus) | **PUT** /input-ports/{id}/run-status | Updates run status of an input-port
 
 <a name="getInputPort"></a>
 # **getInputPort**
@@ -15,22 +15,12 @@ Method | HTTP request | Description
 
 Gets an input port
 
-
-
 ### Example
 ```java
 // Import classes:
-//import com.github.hermannpencole.nifi.swagger.ApiClient;
-//import com.github.hermannpencole.nifi.swagger.ApiException;
-//import com.github.hermannpencole.nifi.swagger.Configuration;
-//import com.github.hermannpencole.nifi.swagger.auth.*;
-//import com.github.hermannpencole.nifi.swagger.client.InputPortsApi;
+//import com.github.asamoal.nifi.swagger.ApiException;
+//import com.github.asamoal.nifi.swagger.client.InputPortsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: auth
-OAuth auth = (OAuth) defaultClient.getAuthentication("auth");
-auth.setAccessToken("YOUR ACCESS TOKEN");
 
 InputPortsApi apiInstance = new InputPortsApi();
 String id = "id_example"; // String | The input port id.
@@ -55,42 +45,33 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[auth](../README.md#auth)
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 <a name="removeInputPort"></a>
 # **removeInputPort**
-> PortEntity removeInputPort(id, version, clientId)
+> PortEntity removeInputPort(id, version, clientId, disconnectedNodeAcknowledged)
 
 Deletes an input port
-
-
 
 ### Example
 ```java
 // Import classes:
-//import com.github.hermannpencole.nifi.swagger.ApiClient;
-//import com.github.hermannpencole.nifi.swagger.ApiException;
-//import com.github.hermannpencole.nifi.swagger.Configuration;
-//import com.github.hermannpencole.nifi.swagger.auth.*;
-//import com.github.hermannpencole.nifi.swagger.client.InputPortsApi;
+//import com.github.asamoal.nifi.swagger.ApiException;
+//import com.github.asamoal.nifi.swagger.client.InputPortsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: auth
-OAuth auth = (OAuth) defaultClient.getAuthentication("auth");
-auth.setAccessToken("YOUR ACCESS TOKEN");
 
 InputPortsApi apiInstance = new InputPortsApi();
 String id = "id_example"; // String | The input port id.
 String version = "version_example"; // String | The revision is used to verify the client is working with the latest version of the flow.
 String clientId = "clientId_example"; // String | If the client id is not specified, new one will be generated. This value (whether specified or generated) is included in the response.
+Boolean disconnectedNodeAcknowledged = false; // Boolean | Acknowledges that this node is disconnected to allow for mutable requests to proceed.
 try {
-    PortEntity result = apiInstance.removeInputPort(id, version, clientId);
+    PortEntity result = apiInstance.removeInputPort(id, version, clientId, disconnectedNodeAcknowledged);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling InputPortsApi#removeInputPort");
@@ -105,6 +86,7 @@ Name | Type | Description  | Notes
  **id** | **String**| The input port id. |
  **version** | **String**| The revision is used to verify the client is working with the latest version of the flow. | [optional]
  **clientId** | **String**| If the client id is not specified, new one will be generated. This value (whether specified or generated) is included in the response. | [optional]
+ **disconnectedNodeAcknowledged** | **Boolean**| Acknowledges that this node is disconnected to allow for mutable requests to proceed. | [optional] [default to false]
 
 ### Return type
 
@@ -112,41 +94,31 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[auth](../README.md#auth)
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: */*
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 <a name="updateInputPort"></a>
 # **updateInputPort**
-> PortEntity updateInputPort(id, body)
+> PortEntity updateInputPort(body, id)
 
 Updates an input port
-
-
 
 ### Example
 ```java
 // Import classes:
-//import com.github.hermannpencole.nifi.swagger.ApiClient;
-//import com.github.hermannpencole.nifi.swagger.ApiException;
-//import com.github.hermannpencole.nifi.swagger.Configuration;
-//import com.github.hermannpencole.nifi.swagger.auth.*;
-//import com.github.hermannpencole.nifi.swagger.client.InputPortsApi;
+//import com.github.asamoal.nifi.swagger.ApiException;
+//import com.github.asamoal.nifi.swagger.client.InputPortsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: auth
-OAuth auth = (OAuth) defaultClient.getAuthentication("auth");
-auth.setAccessToken("YOUR ACCESS TOKEN");
 
 InputPortsApi apiInstance = new InputPortsApi();
-String id = "id_example"; // String | The input port id.
 PortEntity body = new PortEntity(); // PortEntity | The input port configuration details.
+String id = "id_example"; // String | The input port id.
 try {
-    PortEntity result = apiInstance.updateInputPort(id, body);
+    PortEntity result = apiInstance.updateInputPort(body, id);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling InputPortsApi#updateInputPort");
@@ -158,8 +130,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **String**| The input port id. |
  **body** | [**PortEntity**](PortEntity.md)| The input port configuration details. |
+ **id** | **String**| The input port id. |
 
 ### Return type
 
@@ -167,7 +139,52 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[auth](../README.md#auth)
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="updateRunStatus"></a>
+# **updateRunStatus**
+> ProcessorEntity updateRunStatus(body, id)
+
+Updates run status of an input-port
+
+### Example
+```java
+// Import classes:
+//import com.github.asamoal.nifi.swagger.ApiException;
+//import com.github.asamoal.nifi.swagger.client.InputPortsApi;
+
+
+InputPortsApi apiInstance = new InputPortsApi();
+PortRunStatusEntity body = new PortRunStatusEntity(); // PortRunStatusEntity | The port run status.
+String id = "id_example"; // String | The port id.
+try {
+    ProcessorEntity result = apiInstance.updateRunStatus(body, id);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling InputPortsApi#updateRunStatus");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**PortRunStatusEntity**](PortRunStatusEntity.md)| The port run status. |
+ **id** | **String**| The port id. |
+
+### Return type
+
+[**ProcessorEntity**](ProcessorEntity.md)
+
+### Authorization
+
+No authorization required
 
 ### HTTP request headers
 

@@ -1,10 +1,10 @@
-
 # ControllerStatusDTO
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **activeThreadCount** | **Integer** | The number of active threads in the NiFi. |  [optional]
+**terminatedThreadCount** | **Integer** | The number of terminated threads in the NiFi. |  [optional]
 **queued** | **String** | The number of flowfiles queued in the NiFi. |  [optional]
 **flowFilesQueued** | **Integer** | The number of FlowFiles queued across the entire flow |  [optional]
 **bytesQueued** | **Long** | The size of the FlowFiles queued across the entire flow |  [optional]
@@ -19,6 +19,3 @@ Name | Type | Description | Notes
 **staleCount** | **Integer** | The number of stale versioned process groups in the NiFi. |  [optional]
 **locallyModifiedAndStaleCount** | **Integer** | The number of locally modified and stale versioned process groups in the NiFi. |  [optional]
 **syncFailureCount** | **Integer** | The number of versioned process groups in the NiFi that are unable to sync to a registry. |  [optional]
-
-
-

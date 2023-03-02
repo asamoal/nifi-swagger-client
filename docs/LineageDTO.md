@@ -1,4 +1,3 @@
-
 # LineageDTO
 
 ## Properties
@@ -10,8 +9,5 @@ Name | Type | Description | Notes
 **expiration** | **String** | When the lineage query will expire. |  [optional]
 **percentCompleted** | **Integer** | The percent complete for the lineage query. |  [optional]
 **finished** | **Boolean** | Whether the lineage query has finished. |  [optional]
-**request** | [**LineageRequestDTO**](LineageRequestDTO.md) | The initial lineage result. |  [optional]
-**results** | [**LineageResultsDTO**](LineageResultsDTO.md) | The results of the lineage query. |  [optional]
-
-
-
+**request** | [**LineageRequestDTO**](LineageRequestDTO.md) |  |  [optional]
+**results** | [**LineageResultsDTO**](LineageResultsDTO.md) |  |  [optional]

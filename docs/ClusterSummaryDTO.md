@@ -1,4 +1,3 @@
-
 # ClusterSummaryDTO
 
 ## Properties
@@ -9,6 +8,3 @@ Name | Type | Description | Notes
 **totalNodeCount** | **Integer** | The number of nodes in the cluster, regardless of whether or not they are connected |  [optional]
 **clustered** | **Boolean** | Whether this NiFi instance is clustered. |  [optional]
 **connectedToCluster** | **Boolean** | Whether this NiFi instance is connected to a cluster. |  [optional]
-
-
-

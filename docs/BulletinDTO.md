@@ -1,4 +1,3 @@
-
 # BulletinDTO
 
 ## Properties
@@ -13,6 +12,3 @@ Name | Type | Description | Notes
 **level** | **String** | The level of the bulletin. |  [optional]
 **message** | **String** | The bulletin message. |  [optional]
 **timestamp** | **String** | When this bulletin was generated. |  [optional]
-
-
-

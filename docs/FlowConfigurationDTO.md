@@ -1,4 +1,3 @@
-
 # FlowConfigurationDTO
 
 ## Properties
@@ -10,6 +9,5 @@ Name | Type | Description | Notes
 **autoRefreshIntervalSeconds** | **Long** | The interval in seconds between the automatic NiFi refresh requests. |  [optional]
 **currentTime** | **String** | The current time on the system. |  [optional]
 **timeOffset** | **Integer** | The time offset of the system. |  [optional]
-
-
-
+**defaultBackPressureObjectThreshold** | **Long** | The default back pressure object threshold. |  [optional]
+**defaultBackPressureDataSizeThreshold** | **String** | The default back pressure data size threshold. |  [optional]

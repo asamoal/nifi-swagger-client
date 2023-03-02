@@ -1,4 +1,3 @@
-
 # AboutDTO
 
 ## Properties
@@ -13,6 +12,3 @@ Name | Type | Description | Notes
 **buildRevision** | **String** | Build revision or commit hash |  [optional]
 **buildBranch** | **String** | Build branch |  [optional]
 **buildTimestamp** | **String** | Build timestamp |  [optional]
-
-
-

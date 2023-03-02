@@ -1,4 +1,3 @@
-
 # PropertyDescriptorDTO
 
 ## Properties
@@ -13,8 +12,7 @@ Name | Type | Description | Notes
 **sensitive** | **Boolean** | Whether the property is sensitive and protected whenever stored or represented. |  [optional]
 **dynamic** | **Boolean** | Whether the property is dynamic (user-defined). |  [optional]
 **supportsEl** | **Boolean** | Whether the property supports expression language. |  [optional]
+**expressionLanguageScope** | **String** | Scope of the Expression Language evaluation for the property. |  [optional]
 **identifiesControllerService** | **String** | If the property identifies a controller service this returns the fully qualified type. |  [optional]
-**identifiesControllerServiceBundle** | [**BundleDTO**](BundleDTO.md) | If the property identifies a controller service this returns the bundle of the type, null otherwise. |  [optional]
-
-
-
+**identifiesControllerServiceBundle** | [**BundleDTO**](BundleDTO.md) |  |  [optional]
+**dependencies** | [**List&lt;PropertyDependencyDTO&gt;**](PropertyDependencyDTO.md) | A list of dependencies that must be met in order for this Property to be relevant. If any of these dependencies is not met, the property described by this Property Descriptor is not relevant. |  [optional]

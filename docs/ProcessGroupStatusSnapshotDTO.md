@@ -1,4 +1,3 @@
-
 # ProcessGroupStatusSnapshotDTO
 
 ## Properties
@@ -6,7 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **String** | The id of the process group. |  [optional]
 **name** | **String** | The name of this process group. |  [optional]
-**connectionStatusSnapshots** | [**List&lt;ConnectionStatusSnapshotEntity&gt;**](ConnectionStatusSnapshotEntity.md) | The status of all conenctions in the process group. |  [optional]
+**connectionStatusSnapshots** | [**List&lt;ConnectionStatusSnapshotEntity&gt;**](ConnectionStatusSnapshotEntity.md) | The status of all connections in the process group. |  [optional]
 **processorStatusSnapshots** | [**List&lt;ProcessorStatusSnapshotEntity&gt;**](ProcessorStatusSnapshotEntity.md) | The status of all processors in the process group. |  [optional]
 **processGroupStatusSnapshots** | [**List&lt;ProcessGroupStatusSnapshotEntity&gt;**](ProcessGroupStatusSnapshotEntity.md) | The status of all process groups in the process group. |  [optional]
 **remoteProcessGroupStatusSnapshots** | [**List&lt;RemoteProcessGroupStatusSnapshotEntity&gt;**](RemoteProcessGroupStatusSnapshotEntity.md) | The status of all remote process groups in the process group. |  [optional]
@@ -38,17 +37,14 @@ Name | Type | Description | Notes
 **flowFilesSent** | **Integer** | The number of FlowFiles sent to an external sink by components within this ProcessGroup in the last 5 minutes |  [optional]
 **sent** | **String** | The count/size sent from this process group in the last 5 minutes. |  [optional]
 **activeThreadCount** | **Integer** | The active thread count for this process group. |  [optional]
-
+**terminatedThreadCount** | **Integer** | The number of threads currently terminated for the process group. |  [optional]
 
 <a name="VersionedFlowStateEnum"></a>
 ## Enum: VersionedFlowStateEnum
 Name | Value
 ---- | -----
-LOCALLY_MODIFIED_DESCENDANT | &quot;LOCALLY_MODIFIED_DESCENDANT&quot;
 LOCALLY_MODIFIED | &quot;LOCALLY_MODIFIED&quot;
 STALE | &quot;STALE&quot;
 LOCALLY_MODIFIED_AND_STALE | &quot;LOCALLY_MODIFIED_AND_STALE&quot;
 UP_TO_DATE | &quot;UP_TO_DATE&quot;
-
-
-
+SYNC_FAILURE | &quot;SYNC_FAILURE&quot;

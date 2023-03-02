@@ -1,4 +1,3 @@
-
 # SystemDiagnosticsSnapshotDTO
 
 ## Properties
@@ -27,12 +26,9 @@ Name | Type | Description | Notes
 **totalThreads** | **Integer** | Total number of threads. |  [optional]
 **daemonThreads** | **Integer** | Number of daemon threads. |  [optional]
 **uptime** | **String** | The uptime of the Java virtual machine |  [optional]
-**flowFileRepositoryStorageUsage** | [**StorageUsageDTO**](StorageUsageDTO.md) | The flowfile repository storage usage. |  [optional]
+**flowFileRepositoryStorageUsage** | [**StorageUsageDTO**](StorageUsageDTO.md) |  |  [optional]
 **contentRepositoryStorageUsage** | [**List&lt;StorageUsageDTO&gt;**](StorageUsageDTO.md) | The content repository storage usage. |  [optional]
 **provenanceRepositoryStorageUsage** | [**List&lt;StorageUsageDTO&gt;**](StorageUsageDTO.md) | The provenance repository storage usage. |  [optional]
 **garbageCollection** | [**List&lt;GarbageCollectionDTO&gt;**](GarbageCollectionDTO.md) | The garbage collection details. |  [optional]
 **statsLastRefreshed** | **String** | When the diagnostics were generated. |  [optional]
-**versionInfo** | [**VersionInfoDTO**](VersionInfoDTO.md) | The nifi, os, java, and build version information |  [optional]
-
-
-
+**versionInfo** | [**VersionInfoDTO**](VersionInfoDTO.md) |  |  [optional]

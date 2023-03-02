@@ -1,4 +1,3 @@
-
 # PortStatusSnapshotDTO
 
 ## Properties
@@ -15,7 +14,14 @@ Name | Type | Description | Notes
 **bytesOut** | **Long** | The number of bytes that have been processed in the last 5 minutes. |  [optional]
 **output** | **String** | The count/size of flowfiles that have been processed in the last 5 minutes. |  [optional]
 **transmitting** | **Boolean** | Whether the port has incoming or outgoing connections to a remote NiFi. |  [optional]
-**runStatus** | **String** | The run status of the port. |  [optional]
+**runStatus** | [**RunStatusEnum**](#RunStatusEnum) | The run status of the port. |  [optional]
 
-
-
+<a name="RunStatusEnum"></a>
+## Enum: RunStatusEnum
+Name | Value
+---- | -----
+RUNNING | &quot;Running&quot;
+STOPPED | &quot;Stopped&quot;
+VALIDATING | &quot;Validating&quot;
+DISABLED | &quot;Disabled&quot;
+INVALID | &quot;Invalid&quot;

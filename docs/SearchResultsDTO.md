@@ -1,4 +1,3 @@
-
 # SearchResultsDTO
 
 ## Properties
@@ -11,6 +10,8 @@ Name | Type | Description | Notes
 **outputPortResults** | [**List&lt;ComponentSearchResultDTO&gt;**](ComponentSearchResultDTO.md) | The output ports that matched the search. |  [optional]
 **remoteProcessGroupResults** | [**List&lt;ComponentSearchResultDTO&gt;**](ComponentSearchResultDTO.md) | The remote process groups that matched the search. |  [optional]
 **funnelResults** | [**List&lt;ComponentSearchResultDTO&gt;**](ComponentSearchResultDTO.md) | The funnels that matched the search. |  [optional]
-
-
-
+**labelResults** | [**List&lt;ComponentSearchResultDTO&gt;**](ComponentSearchResultDTO.md) | The labels that matched the search. |  [optional]
+**controllerServiceNodeResults** | [**List&lt;ComponentSearchResultDTO&gt;**](ComponentSearchResultDTO.md) | The controller service nodes that matched the search |  [optional]
+**parameterContextResults** | [**List&lt;ComponentSearchResultDTO&gt;**](ComponentSearchResultDTO.md) | The parameter contexts that matched the search. |  [optional]
+**parameterProviderNodeResults** | [**List&lt;ComponentSearchResultDTO&gt;**](ComponentSearchResultDTO.md) | The parameter provider nodes that matched the search |  [optional]
+**parameterResults** | [**List&lt;ComponentSearchResultDTO&gt;**](ComponentSearchResultDTO.md) | The parameters that matched the search. |  [optional]

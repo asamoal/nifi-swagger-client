@@ -1,8 +1,8 @@
 # nifi-swagger-client
 
 NiFi Rest API
-- API version: 1.19.1
-  - Build date: 2023-03-02T14:05:54.066380Z[Africa/Accra]
+- API version: 1.20.0
+  - Build date: 2023-04-12T17:33:04.444173+02:00[Europe/Berlin]
 
 The Rest API provides programmatic access to command and control a NiFi instance in real time. Start and                                             stop processors, monitor queues, query provenance data, and more. Each endpoint below includes a description,                                             definitions of the expected input and output, potential response codes, and the authorizations required                                             to invoke each service.
 
@@ -41,7 +41,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.github.asamoal</groupId>
   <artifactId>nifi-swagger-client</artifactId>
-  <version>1.1.0</version>
+  <version>1.20</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.github.asamoal:nifi-swagger-client:1.1.0"
+compile "com.github.asamoal:nifi-swagger-client:1.20"
 ```
 
 ### Others
@@ -64,7 +64,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/nifi-swagger-client-1.1.0.jar`
+* `target/nifi-swagger-client-1.20.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -600,6 +600,7 @@ Class | Method | HTTP request | Description
  - [AffectedComponentEntity](docs/AffectedComponentEntity.md)
  - [AllowableValueDTO](docs/AllowableValueDTO.md)
  - [AllowableValueEntity](docs/AllowableValueEntity.md)
+ - [Attribute](docs/Attribute.md)
  - [AttributeDTO](docs/AttributeDTO.md)
  - [BannerDTO](docs/BannerDTO.md)
  - [BannerEntity](docs/BannerEntity.md)
@@ -687,6 +688,8 @@ Class | Method | HTTP request | Description
  - [DropRequestDTO](docs/DropRequestDTO.md)
  - [DropRequestEntity](docs/DropRequestEntity.md)
  - [DtoFactory](docs/DtoFactory.md)
+ - [DynamicProperty](docs/DynamicProperty.md)
+ - [DynamicRelationship](docs/DynamicRelationship.md)
  - [Entity](docs/Entity.md)
  - [ExplicitRestrictionDTO](docs/ExplicitRestrictionDTO.md)
  - [ExternalControllerServiceReference](docs/ExternalControllerServiceReference.md)
@@ -909,6 +912,7 @@ Class | Method | HTTP request | Description
  - [SystemDiagnosticsDTO](docs/SystemDiagnosticsDTO.md)
  - [SystemDiagnosticsEntity](docs/SystemDiagnosticsEntity.md)
  - [SystemDiagnosticsSnapshotDTO](docs/SystemDiagnosticsSnapshotDTO.md)
+ - [SystemResourceConsideration](docs/SystemResourceConsideration.md)
  - [TemplateDTO](docs/TemplateDTO.md)
  - [TemplateEntity](docs/TemplateEntity.md)
  - [TemplatesEntity](docs/TemplatesEntity.md)
@@ -965,16 +969,8 @@ Class | Method | HTTP request | Description
 
 ## Documentation for Authorization
 
+All endpoints do not require authorization.
 Authentication schemes defined for the API:
-### auth
-
-- **Type**: OAuth
-- **Flow**: implicit
-- **Authorization URL**: http://localhost/api/oauth/dialog
-- **Scopes**: 
-  - write:nifi: modify nifi
-  - read:nifi: read your nifi
-
 
 ## Recommendation
 

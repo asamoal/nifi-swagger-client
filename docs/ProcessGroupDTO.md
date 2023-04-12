@@ -33,8 +33,8 @@ Name | Type | Description | Notes
 **publicInputPortCount** | **Integer** | The number of public input ports in the process group. |  [optional]
 **publicOutputPortCount** | **Integer** | The number of public output ports in the process group. |  [optional]
 **contents** | [**FlowSnippetDTO**](FlowSnippetDTO.md) |  |  [optional]
-**outputPortCount** | **Integer** | The number of output ports in the process group. |  [optional]
 **inputPortCount** | **Integer** | The number of input ports in the process group. |  [optional]
+**outputPortCount** | **Integer** | The number of output ports in the process group. |  [optional]
 
 <a name="FlowfileConcurrencyEnum"></a>
 ## Enum: FlowfileConcurrencyEnum

@@ -66,17 +66,9 @@ Gets a connection
 ### Example
 ```java
 // Import classes:
-//import com.github.asamoal.nifi.swagger.ApiClient;
 //import com.github.asamoal.nifi.swagger.ApiException;
-//import com.github.asamoal.nifi.swagger.Configuration;
-//import com.github.asamoal.nifi.swagger.auth.*;
 //import com.github.asamoal.nifi.swagger.client.ConnectionsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: auth
-OAuth auth = (OAuth) defaultClient.getAuthentication("auth");
-auth.setAccessToken("YOUR ACCESS TOKEN");
 
 ConnectionsApi apiInstance = new ConnectionsApi();
 String id = "id_example"; // String | The connection id.
@@ -101,7 +93,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[auth](../README.md#auth)
+No authorization required
 
 ### HTTP request headers
 

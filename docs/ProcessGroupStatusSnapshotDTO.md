@@ -38,6 +38,7 @@ Name | Type | Description | Notes
 **sent** | **String** | The count/size sent from this process group in the last 5 minutes. |  [optional]
 **activeThreadCount** | **Integer** | The active thread count for this process group. |  [optional]
 **terminatedThreadCount** | **Integer** | The number of threads currently terminated for the process group. |  [optional]
+**processingNanos** | **Long** |  |  [optional]
 
 <a name="VersionedFlowStateEnum"></a>
 ## Enum: VersionedFlowStateEnum
